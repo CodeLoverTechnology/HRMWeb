@@ -146,5 +146,10 @@ namespace HRMWeb.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult ApplyLeave()
+        {
+            return View();
+        }
     }
 }
