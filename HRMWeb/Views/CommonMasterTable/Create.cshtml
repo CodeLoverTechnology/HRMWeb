@@ -1,0 +1,61 @@
+﻿@model HRMWeb.DataModel.M_CommonMasterTable
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="container">
+        <div class="col-lg-offset-4 col-md-offset-4 col-lg-5 col-md-6">
+            @using (Html.BeginForm())
+            {
+                <div class="h2 btn-primary text-center" style="padding:5px;">Create</div>
+                @*<div class="row">*@
+
+
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal text-center">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FieldValue, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FieldValue, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FieldValue, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TableName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TableName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TableName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.OrderNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.OrderNo, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OrderNo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                @*</div>*@
+
+                <div class="h2 btn-primary text-center" style="padding:5px;">
+                    <input type="submit" value="Create" class="btn btn-success" />
+                    <a href="~/CommonMasterTable/Index" class="btn btn-danger">Back to List</a>
+                </div>
+
+            }
+        </div>
+        </div>
+    </div>
+<div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

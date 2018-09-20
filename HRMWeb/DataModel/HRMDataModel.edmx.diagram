@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="60b2b39d01314d06885342249b4a722b" Name="Diagram1">
+        <EntityTypeShape EntityType="HRM_DBModel.M_CandidateMasters" Width="1.5" PointX="7.5" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRM_DBModel.M_CommonMasterTable" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRM_DBModel.M_CompanyMasters" Width="1.5" PointX="5.25" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRM_DBModel.M_DesignationMaster" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRM_DBModel.M_EmployeeMasters" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRM_DBModel.M_FunctionAreaMaster" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRM_DBModel.M_IndustryMaster" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRM_DBModel.M_LocationMasters" Width="1.5" PointX="3" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRM_DBModel.M_RequirementMaster" Width="1.5" PointX="10.5" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRM_DBModel.M_RoleMaster" Width="1.5" PointX="5.25" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRM_DBModel.T_CandidateFollowUpDetails" Width="1.5" PointX="12.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRM_DBModel.T_FinalCandidatePlacementDetails" Width="1.5" PointX="9.75" PointY="12.875" IsExpanded="true" />
+        <AssociationConnector Association="HRM_DBModel.FK_M_CandidateMaters_M_CommonMasterTable" ManuallyRouted="false" />
+        <AssociationConnector Association="HRM_DBModel.FK_M_CandidateMaters_M_CompanyMasters" ManuallyRouted="false" />
+        <AssociationConnector Association="HRM_DBModel.FK_M_CandidateMaters_M_LocationMasters" ManuallyRouted="false" />
+        <AssociationConnector Association="HRM_DBModel.FK_M_CandidateMaters_M_RoleMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="HRM_DBModel.FK_T_CandidateFollowUpDetails_M_CandidateMasters" ManuallyRouted="false" />
+        <AssociationConnector Association="HRM_DBModel.FK_T_FinalCandidatePlacementDetails_M_CandidateMasters" ManuallyRouted="false" />
+        <AssociationConnector Association="HRM_DBModel.FK_M_EmployeeMasters_M_CommonMasterTable" ManuallyRouted="false" />
+        <AssociationConnector Association="HRM_DBModel.FK_M_EmployeeMasters_M_CommonMasterTable1" ManuallyRouted="false" />
+        <AssociationConnector Association="HRM_DBModel.FK_M_LocationMasters_M_CommonMasterTable" ManuallyRouted="false" />
+        <AssociationConnector Association="HRM_DBModel.FK_M_RequirementMaster_M_CommonMasterTable" ManuallyRouted="false" />
+        <AssociationConnector Association="HRM_DBModel.FK_T_CandidateFollowUpDetails_M_CommonMasterTable" ManuallyRouted="false" />
+        <AssociationConnector Association="HRM_DBModel.FK_T_CandidateFollowUpDetails_M_CommonMasterTable1" ManuallyRouted="false" />
+        <AssociationConnector Association="HRM_DBModel.FK_T_FinalCandidatePlacementDetails_M_CommonMasterTable" ManuallyRouted="false" />
+        <AssociationConnector Association="HRM_DBModel.FK_M_CompanyMasters_M_LocationMasters" ManuallyRouted="false" />
+        <AssociationConnector Association="HRM_DBModel.FK_M_RequirementMaster_M_CompanyMasters" ManuallyRouted="false" />
+        <AssociationConnector Association="HRM_DBModel.FK_T_CandidateFollowUpDetails_M_CompanyMasters" ManuallyRouted="false" />
+        <AssociationConnector Association="HRM_DBModel.FK_T_FinalCandidatePlacementDetails_M_CompanyMasters" ManuallyRouted="false" />
+        <AssociationConnector Association="HRM_DBModel.FK_M_EmployeeMasters_M_DesignationMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="HRM_DBModel.FK_M_EmployeeMasters_M_EmployeeMasters" ManuallyRouted="false" />
+        <AssociationConnector Association="HRM_DBModel.FK_M_RequirementMaster_M_LocationMasters" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HRM_DBModel.M_NavigationMaster" Width="1.5" PointX="3.375" PointY="4.75" />
+        <AssociationConnector Association="HRM_DBModel.FK_M_NavigationMaster_M_NavigationMaster" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

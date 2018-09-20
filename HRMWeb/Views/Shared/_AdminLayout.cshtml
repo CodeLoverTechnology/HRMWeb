@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        @ViewBag.Title - HRM Kaushalya Technologies Application
+    </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body style="margin:0px;padding:1px;"> 
+    <div class="card-header text-center">
+        <p>HRM Kaushalya Technologies Application </p>
+    </div>
+    <div class="row">
+        <div class="col-lg-1 coli-md-1 border-right">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("Designation", "Index", "DesignationMaster")</li>
+                <li>@Html.ActionLink("Employee", "Index", "M_EmployeeMasters")</li>
+                <li>@Html.ActionLink("Candidate", "Contact", "Home")</li>
+                <li>@Html.ActionLink("Login", "Login", "Home")</li>
+            </ul>
+        </div>
+        <div class="col-lg-11 coli-md-11">
+            <div class="card-body" style="margin-bottom:35px;padding-bottom:35px;">
+                @RenderBody()
+            </div>
+        </div>
+    </div>               
+    <div class="panel-warning card-footer text-center" style="position:fixed;margin-bottom:0px;width:100%;padding-bottom:0px;left:0;bottom:0;">
+        <p> @DateTime.Now.Year -  &copy;HRM Kaushalya Technologies Application </p>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

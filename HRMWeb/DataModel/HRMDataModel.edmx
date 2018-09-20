@@ -1,0 +1,1503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HRM_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="M_CandidateMasters">
+          <Key>
+            <PropertyRef Name="CandidateID" />
+          </Key>
+          <Property Name="CandidateID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EmailID" Type="nvarchar(max)" />
+          <Property Name="ContactNo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="LocationID" Type="int" Nullable="false" />
+          <Property Name="DesiredCity" Type="nvarchar(max)" />
+          <Property Name="DesignationID" Type="int" />
+          <Property Name="KeySkills" Type="nvarchar(max)" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="CurrentCTC" Type="nvarchar" MaxLength="255" />
+          <Property Name="AspectedCTC" Type="nvarchar" MaxLength="255" />
+          <Property Name="TotalExperience" Type="nvarchar(max)" />
+          <Property Name="CV" Type="nvarchar(max)" />
+          <Property Name="CandidateStatusID" Type="int" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_CommonMasterTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FieldValue" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TableName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="OrderNo" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_CompanyMasters">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="ContactPerson" Type="nvarchar(max)" />
+          <Property Name="CompanyContactNo" Type="nvarchar(max)" />
+          <Property Name="EmailID" Type="nvarchar(max)" />
+          <Property Name="LocationID" Type="int" Nullable="false" />
+          <Property Name="Locality" Type="nvarchar(max)" />
+          <Property Name="OrderBy" Type="int" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_DesignationMaster">
+          <Key>
+            <PropertyRef Name="DesignationID" />
+          </Key>
+          <Property Name="DesignationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Designation" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="OrderNo" Type="int" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_EmployeeMasters">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EmployeeName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="State" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CountryID" Type="int" Nullable="false" />
+          <Property Name="PersonalEmailID" Type="nvarchar(max)" />
+          <Property Name="CEmailID" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ContactNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmergencyContactNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GenderID" Type="int" Nullable="false" />
+          <Property Name="DOB" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DOJ" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Department" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DesignationID" Type="int" Nullable="false" />
+          <Property Name="ManagerID" Type="nvarchar" MaxLength="20" />
+          <Property Name="EmployeePic" Type="nvarchar(max)" />
+          <Property Name="Pwd" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_FunctionAreaMaster">
+          <Key>
+            <PropertyRef Name="FunctionAreaID" />
+          </Key>
+          <Property Name="FunctionAreaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FunctionArea" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OrderNo" Type="int" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_IndustryMaster">
+          <Key>
+            <PropertyRef Name="IndustryID" />
+          </Key>
+          <Property Name="IndustryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IndustryName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="OrderNo" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_LocationMasters">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryID" Type="int" Nullable="false" />
+          <Property Name="State" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OrderBy" Type="int" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_NavigationMaster">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MenuLink" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ParantMenuID" Type="int" />
+          <Property Name="MenuType" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_RequirementMaster">
+          <Key>
+            <PropertyRef Name="RequirementID" />
+          </Key>
+          <Property Name="RequirementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RequirementTitle" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JobTitle_Designation" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JobDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AnnualCTC" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="WorkExperience" Type="nvarchar(max)" />
+          <Property Name="KeySkills" Type="nvarchar(max)" />
+          <Property Name="JobLocationID" Type="int" Nullable="false" />
+          <Property Name="NoOfPosition" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="OpeningDate" Type="nvarchar(max)" />
+          <Property Name="JoiningDate" Type="nvarchar(max)" />
+          <Property Name="RequirementStatusID" Type="int" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_RoleMaster">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RoleDescription" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_CandidateFollowUpDetails">
+          <Key>
+            <PropertyRef Name="CandidateFollowUpID" />
+          </Key>
+          <Property Name="CandidateFollowUpID" Type="int" Nullable="false" />
+          <Property Name="CandidateID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="ComSkillsID" Type="int" Nullable="false" />
+          <Property Name="InterViewDate" Type="datetime" />
+          <Property Name="InterViewTime" Type="nvarchar" MaxLength="255" />
+          <Property Name="NextFollowUpDate" Type="datetime" />
+          <Property Name="CandidateStatusID" Type="int" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_FinalCandidatePlacementDetails">
+          <Key>
+            <PropertyRef Name="FinalEmployeeID" />
+          </Key>
+          <Property Name="FinalEmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CandidateID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="EmployeeTypeID" Type="int" Nullable="false" />
+          <Property Name="CTCOfferToCandidate" Type="int" />
+          <Property Name="CTCOfferByCompany" Type="int" />
+          <Property Name="DateOfJoining" Type="datetime" Nullable="false" />
+          <Property Name="LastWorkingDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_M_CandidateMaters_M_CommonMasterTable">
+          <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="0..1" />
+          <End Role="M_CandidateMasters" Type="Self.M_CandidateMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="M_CandidateMasters">
+              <PropertyRef Name="CandidateStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_CandidateMaters_M_CompanyMasters">
+          <End Role="M_CompanyMasters" Type="Self.M_CompanyMasters" Multiplicity="0..1" />
+          <End Role="M_CandidateMasters" Type="Self.M_CandidateMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CompanyMasters">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="M_CandidateMasters">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_CandidateMaters_M_LocationMasters">
+          <End Role="M_LocationMasters" Type="Self.M_LocationMasters" Multiplicity="1" />
+          <End Role="M_CandidateMasters" Type="Self.M_CandidateMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_LocationMasters">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="M_CandidateMasters">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_CandidateMaters_M_RoleMaster">
+          <End Role="M_RoleMaster" Type="Self.M_RoleMaster" Multiplicity="1" />
+          <End Role="M_CandidateMasters" Type="Self.M_CandidateMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_RoleMaster">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="M_CandidateMasters">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_CompanyMasters_M_LocationMasters">
+          <End Role="M_LocationMasters" Type="Self.M_LocationMasters" Multiplicity="1" />
+          <End Role="M_CompanyMasters" Type="Self.M_CompanyMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_LocationMasters">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="M_CompanyMasters">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_EmployeeMasters_M_CommonMasterTable">
+          <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="1" />
+          <End Role="M_EmployeeMasters" Type="Self.M_EmployeeMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="M_EmployeeMasters">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_EmployeeMasters_M_CommonMasterTable1">
+          <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="1" />
+          <End Role="M_EmployeeMasters" Type="Self.M_EmployeeMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="M_EmployeeMasters">
+              <PropertyRef Name="GenderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_EmployeeMasters_M_DesignationMaster">
+          <End Role="M_DesignationMaster" Type="Self.M_DesignationMaster" Multiplicity="1" />
+          <End Role="M_EmployeeMasters" Type="Self.M_EmployeeMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_DesignationMaster">
+              <PropertyRef Name="DesignationID" />
+            </Principal>
+            <Dependent Role="M_EmployeeMasters">
+              <PropertyRef Name="DesignationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_EmployeeMasters_M_EmployeeMasters">
+          <End Role="M_EmployeeMasters" Type="Self.M_EmployeeMasters" Multiplicity="0..1" />
+          <End Role="M_EmployeeMasters1" Type="Self.M_EmployeeMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_EmployeeMasters">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="M_EmployeeMasters1">
+              <PropertyRef Name="ManagerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_LocationMasters_M_CommonMasterTable">
+          <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="1" />
+          <End Role="M_LocationMasters" Type="Self.M_LocationMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="M_LocationMasters">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_NavigationMaster_M_NavigationMaster">
+          <End Role="M_NavigationMaster" Type="Self.M_NavigationMaster" Multiplicity="0..1" />
+          <End Role="M_NavigationMaster1" Type="Self.M_NavigationMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_NavigationMaster">
+              <PropertyRef Name="MenuID" />
+            </Principal>
+            <Dependent Role="M_NavigationMaster1">
+              <PropertyRef Name="ParantMenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_RequirementMaster_M_CommonMasterTable">
+          <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="1" />
+          <End Role="M_RequirementMaster" Type="Self.M_RequirementMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="M_RequirementMaster">
+              <PropertyRef Name="RequirementStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_RequirementMaster_M_CompanyMasters">
+          <End Role="M_CompanyMasters" Type="Self.M_CompanyMasters" Multiplicity="0..1" />
+          <End Role="M_RequirementMaster" Type="Self.M_RequirementMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CompanyMasters">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="M_RequirementMaster">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_RequirementMaster_M_LocationMasters">
+          <End Role="M_LocationMasters" Type="Self.M_LocationMasters" Multiplicity="1" />
+          <End Role="M_RequirementMaster" Type="Self.M_RequirementMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_LocationMasters">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="M_RequirementMaster">
+              <PropertyRef Name="JobLocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_CandidateFollowUpDetails_M_CandidateMasters">
+          <End Role="M_CandidateMasters" Type="Self.M_CandidateMasters" Multiplicity="1" />
+          <End Role="T_CandidateFollowUpDetails" Type="Self.T_CandidateFollowUpDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CandidateMasters">
+              <PropertyRef Name="CandidateID" />
+            </Principal>
+            <Dependent Role="T_CandidateFollowUpDetails">
+              <PropertyRef Name="CandidateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_CandidateFollowUpDetails_M_CommonMasterTable">
+          <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="1" />
+          <End Role="T_CandidateFollowUpDetails" Type="Self.T_CandidateFollowUpDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_CandidateFollowUpDetails">
+              <PropertyRef Name="ComSkillsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_CandidateFollowUpDetails_M_CommonMasterTable1">
+          <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="0..1" />
+          <End Role="T_CandidateFollowUpDetails" Type="Self.T_CandidateFollowUpDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_CandidateFollowUpDetails">
+              <PropertyRef Name="CandidateStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_CandidateFollowUpDetails_M_CompanyMasters">
+          <End Role="M_CompanyMasters" Type="Self.M_CompanyMasters" Multiplicity="1" />
+          <End Role="T_CandidateFollowUpDetails" Type="Self.T_CandidateFollowUpDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CompanyMasters">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="T_CandidateFollowUpDetails">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_FinalCandidatePlacementDetails_M_CandidateMasters">
+          <End Role="M_CandidateMasters" Type="Self.M_CandidateMasters" Multiplicity="1" />
+          <End Role="T_FinalCandidatePlacementDetails" Type="Self.T_FinalCandidatePlacementDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CandidateMasters">
+              <PropertyRef Name="CandidateID" />
+            </Principal>
+            <Dependent Role="T_FinalCandidatePlacementDetails">
+              <PropertyRef Name="CandidateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_FinalCandidatePlacementDetails_M_CommonMasterTable">
+          <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="1" />
+          <End Role="T_FinalCandidatePlacementDetails" Type="Self.T_FinalCandidatePlacementDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_FinalCandidatePlacementDetails">
+              <PropertyRef Name="EmployeeTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_FinalCandidatePlacementDetails_M_CompanyMasters">
+          <End Role="M_CompanyMasters" Type="Self.M_CompanyMasters" Multiplicity="1" />
+          <End Role="T_FinalCandidatePlacementDetails" Type="Self.T_FinalCandidatePlacementDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CompanyMasters">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="T_FinalCandidatePlacementDetails">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HRM_DBModelStoreContainer">
+          <EntitySet Name="M_CandidateMasters" EntityType="Self.M_CandidateMasters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_CommonMasterTable" EntityType="Self.M_CommonMasterTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_CompanyMasters" EntityType="Self.M_CompanyMasters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_DesignationMaster" EntityType="Self.M_DesignationMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_EmployeeMasters" EntityType="Self.M_EmployeeMasters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_FunctionAreaMaster" EntityType="Self.M_FunctionAreaMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_IndustryMaster" EntityType="Self.M_IndustryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_LocationMasters" EntityType="Self.M_LocationMasters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_NavigationMaster" EntityType="Self.M_NavigationMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_RequirementMaster" EntityType="Self.M_RequirementMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_RoleMaster" EntityType="Self.M_RoleMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_CandidateFollowUpDetails" EntityType="Self.T_CandidateFollowUpDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_FinalCandidatePlacementDetails" EntityType="Self.T_FinalCandidatePlacementDetails" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_M_CandidateMaters_M_CommonMasterTable" Association="Self.FK_M_CandidateMaters_M_CommonMasterTable">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="M_CandidateMasters" EntitySet="M_CandidateMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_CandidateMaters_M_CompanyMasters" Association="Self.FK_M_CandidateMaters_M_CompanyMasters">
+            <End Role="M_CompanyMasters" EntitySet="M_CompanyMasters" />
+            <End Role="M_CandidateMasters" EntitySet="M_CandidateMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_CandidateMaters_M_LocationMasters" Association="Self.FK_M_CandidateMaters_M_LocationMasters">
+            <End Role="M_LocationMasters" EntitySet="M_LocationMasters" />
+            <End Role="M_CandidateMasters" EntitySet="M_CandidateMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_CandidateMaters_M_RoleMaster" Association="Self.FK_M_CandidateMaters_M_RoleMaster">
+            <End Role="M_RoleMaster" EntitySet="M_RoleMaster" />
+            <End Role="M_CandidateMasters" EntitySet="M_CandidateMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_CompanyMasters_M_LocationMasters" Association="Self.FK_M_CompanyMasters_M_LocationMasters">
+            <End Role="M_LocationMasters" EntitySet="M_LocationMasters" />
+            <End Role="M_CompanyMasters" EntitySet="M_CompanyMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_EmployeeMasters_M_CommonMasterTable" Association="Self.FK_M_EmployeeMasters_M_CommonMasterTable">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="M_EmployeeMasters" EntitySet="M_EmployeeMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_EmployeeMasters_M_CommonMasterTable1" Association="Self.FK_M_EmployeeMasters_M_CommonMasterTable1">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="M_EmployeeMasters" EntitySet="M_EmployeeMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_EmployeeMasters_M_DesignationMaster" Association="Self.FK_M_EmployeeMasters_M_DesignationMaster">
+            <End Role="M_DesignationMaster" EntitySet="M_DesignationMaster" />
+            <End Role="M_EmployeeMasters" EntitySet="M_EmployeeMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_EmployeeMasters_M_EmployeeMasters" Association="Self.FK_M_EmployeeMasters_M_EmployeeMasters">
+            <End Role="M_EmployeeMasters" EntitySet="M_EmployeeMasters" />
+            <End Role="M_EmployeeMasters1" EntitySet="M_EmployeeMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_LocationMasters_M_CommonMasterTable" Association="Self.FK_M_LocationMasters_M_CommonMasterTable">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="M_LocationMasters" EntitySet="M_LocationMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_NavigationMaster_M_NavigationMaster" Association="Self.FK_M_NavigationMaster_M_NavigationMaster">
+            <End Role="M_NavigationMaster" EntitySet="M_NavigationMaster" />
+            <End Role="M_NavigationMaster1" EntitySet="M_NavigationMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_RequirementMaster_M_CommonMasterTable" Association="Self.FK_M_RequirementMaster_M_CommonMasterTable">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="M_RequirementMaster" EntitySet="M_RequirementMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_RequirementMaster_M_CompanyMasters" Association="Self.FK_M_RequirementMaster_M_CompanyMasters">
+            <End Role="M_CompanyMasters" EntitySet="M_CompanyMasters" />
+            <End Role="M_RequirementMaster" EntitySet="M_RequirementMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_RequirementMaster_M_LocationMasters" Association="Self.FK_M_RequirementMaster_M_LocationMasters">
+            <End Role="M_LocationMasters" EntitySet="M_LocationMasters" />
+            <End Role="M_RequirementMaster" EntitySet="M_RequirementMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_CandidateFollowUpDetails_M_CandidateMasters" Association="Self.FK_T_CandidateFollowUpDetails_M_CandidateMasters">
+            <End Role="M_CandidateMasters" EntitySet="M_CandidateMasters" />
+            <End Role="T_CandidateFollowUpDetails" EntitySet="T_CandidateFollowUpDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_CandidateFollowUpDetails_M_CommonMasterTable" Association="Self.FK_T_CandidateFollowUpDetails_M_CommonMasterTable">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="T_CandidateFollowUpDetails" EntitySet="T_CandidateFollowUpDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_CandidateFollowUpDetails_M_CommonMasterTable1" Association="Self.FK_T_CandidateFollowUpDetails_M_CommonMasterTable1">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="T_CandidateFollowUpDetails" EntitySet="T_CandidateFollowUpDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_CandidateFollowUpDetails_M_CompanyMasters" Association="Self.FK_T_CandidateFollowUpDetails_M_CompanyMasters">
+            <End Role="M_CompanyMasters" EntitySet="M_CompanyMasters" />
+            <End Role="T_CandidateFollowUpDetails" EntitySet="T_CandidateFollowUpDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_FinalCandidatePlacementDetails_M_CandidateMasters" Association="Self.FK_T_FinalCandidatePlacementDetails_M_CandidateMasters">
+            <End Role="M_CandidateMasters" EntitySet="M_CandidateMasters" />
+            <End Role="T_FinalCandidatePlacementDetails" EntitySet="T_FinalCandidatePlacementDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_FinalCandidatePlacementDetails_M_CommonMasterTable" Association="Self.FK_T_FinalCandidatePlacementDetails_M_CommonMasterTable">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="T_FinalCandidatePlacementDetails" EntitySet="T_FinalCandidatePlacementDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_FinalCandidatePlacementDetails_M_CompanyMasters" Association="Self.FK_T_FinalCandidatePlacementDetails_M_CompanyMasters">
+            <End Role="M_CompanyMasters" EntitySet="M_CompanyMasters" />
+            <End Role="T_FinalCandidatePlacementDetails" EntitySet="T_FinalCandidatePlacementDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HRM_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="M_CandidateMasters">
+          <Key>
+            <PropertyRef Name="CandidateID" />
+          </Key>
+          <Property Name="CandidateID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="LocationID" Type="Int32" Nullable="false" />
+          <Property Name="DesiredCity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DesignationID" Type="Int32" />
+          <Property Name="KeySkills" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="CurrentCTC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AspectedCTC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TotalExperience" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CandidateStatusID" Type="Int32" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_CommonMasterTable" Relationship="Self.FK_M_CandidateMaters_M_CommonMasterTable" FromRole="M_CandidateMasters" ToRole="M_CommonMasterTable" />
+          <NavigationProperty Name="M_CompanyMasters" Relationship="Self.FK_M_CandidateMaters_M_CompanyMasters" FromRole="M_CandidateMasters" ToRole="M_CompanyMasters" />
+          <NavigationProperty Name="M_LocationMasters" Relationship="Self.FK_M_CandidateMaters_M_LocationMasters" FromRole="M_CandidateMasters" ToRole="M_LocationMasters" />
+          <NavigationProperty Name="M_RoleMaster" Relationship="Self.FK_M_CandidateMaters_M_RoleMaster" FromRole="M_CandidateMasters" ToRole="M_RoleMaster" />
+          <NavigationProperty Name="T_CandidateFollowUpDetails" Relationship="Self.FK_T_CandidateFollowUpDetails_M_CandidateMasters" FromRole="M_CandidateMasters" ToRole="T_CandidateFollowUpDetails" />
+          <NavigationProperty Name="T_FinalCandidatePlacementDetails" Relationship="Self.FK_T_FinalCandidatePlacementDetails_M_CandidateMasters" FromRole="M_CandidateMasters" ToRole="T_FinalCandidatePlacementDetails" />
+        </EntityType>
+        <EntityType Name="M_CommonMasterTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FieldValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TableName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrderNo" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_CandidateMasters" Relationship="Self.FK_M_CandidateMaters_M_CommonMasterTable" FromRole="M_CommonMasterTable" ToRole="M_CandidateMasters" />
+          <NavigationProperty Name="M_EmployeeMasters" Relationship="Self.FK_M_EmployeeMasters_M_CommonMasterTable" FromRole="M_CommonMasterTable" ToRole="M_EmployeeMasters" />
+          <NavigationProperty Name="M_EmployeeMasters1" Relationship="Self.FK_M_EmployeeMasters_M_CommonMasterTable1" FromRole="M_CommonMasterTable" ToRole="M_EmployeeMasters" />
+          <NavigationProperty Name="M_LocationMasters" Relationship="Self.FK_M_LocationMasters_M_CommonMasterTable" FromRole="M_CommonMasterTable" ToRole="M_LocationMasters" />
+          <NavigationProperty Name="M_RequirementMaster" Relationship="Self.FK_M_RequirementMaster_M_CommonMasterTable" FromRole="M_CommonMasterTable" ToRole="M_RequirementMaster" />
+          <NavigationProperty Name="T_CandidateFollowUpDetails" Relationship="Self.FK_T_CandidateFollowUpDetails_M_CommonMasterTable" FromRole="M_CommonMasterTable" ToRole="T_CandidateFollowUpDetails" />
+          <NavigationProperty Name="T_CandidateFollowUpDetails1" Relationship="Self.FK_T_CandidateFollowUpDetails_M_CommonMasterTable1" FromRole="M_CommonMasterTable" ToRole="T_CandidateFollowUpDetails" />
+          <NavigationProperty Name="T_FinalCandidatePlacementDetails" Relationship="Self.FK_T_FinalCandidatePlacementDetails_M_CommonMasterTable" FromRole="M_CommonMasterTable" ToRole="T_FinalCandidatePlacementDetails" />
+        </EntityType>
+        <EntityType Name="M_CompanyMasters">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPerson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyContactNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmailID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LocationID" Type="Int32" Nullable="false" />
+          <Property Name="Locality" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OrderBy" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_CandidateMasters" Relationship="Self.FK_M_CandidateMaters_M_CompanyMasters" FromRole="M_CompanyMasters" ToRole="M_CandidateMasters" />
+          <NavigationProperty Name="M_LocationMasters" Relationship="Self.FK_M_CompanyMasters_M_LocationMasters" FromRole="M_CompanyMasters" ToRole="M_LocationMasters" />
+          <NavigationProperty Name="M_RequirementMaster" Relationship="Self.FK_M_RequirementMaster_M_CompanyMasters" FromRole="M_CompanyMasters" ToRole="M_RequirementMaster" />
+          <NavigationProperty Name="T_CandidateFollowUpDetails" Relationship="Self.FK_T_CandidateFollowUpDetails_M_CompanyMasters" FromRole="M_CompanyMasters" ToRole="T_CandidateFollowUpDetails" />
+          <NavigationProperty Name="T_FinalCandidatePlacementDetails" Relationship="Self.FK_T_FinalCandidatePlacementDetails_M_CompanyMasters" FromRole="M_CompanyMasters" ToRole="T_FinalCandidatePlacementDetails" />
+        </EntityType>
+        <EntityType Name="M_DesignationMaster">
+          <Key>
+            <PropertyRef Name="DesignationID" />
+          </Key>
+          <Property Name="DesignationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Designation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNo" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_EmployeeMasters" Relationship="Self.FK_M_EmployeeMasters_M_DesignationMaster" FromRole="M_DesignationMaster" ToRole="M_EmployeeMasters" />
+        </EntityType>
+        <EntityType Name="M_EmployeeMasters">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmployeeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CountryID" Type="Int32" Nullable="false" />
+          <Property Name="PersonalEmailID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CEmailID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmergencyContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GenderID" Type="Int32" Nullable="false" />
+          <Property Name="DOB" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DOJ" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Department" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DesignationID" Type="Int32" Nullable="false" />
+          <Property Name="ManagerID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_CommonMasterTable" Relationship="Self.FK_M_EmployeeMasters_M_CommonMasterTable" FromRole="M_EmployeeMasters" ToRole="M_CommonMasterTable" />
+          <NavigationProperty Name="M_CommonMasterTable1" Relationship="Self.FK_M_EmployeeMasters_M_CommonMasterTable1" FromRole="M_EmployeeMasters" ToRole="M_CommonMasterTable" />
+          <NavigationProperty Name="M_DesignationMaster" Relationship="Self.FK_M_EmployeeMasters_M_DesignationMaster" FromRole="M_EmployeeMasters" ToRole="M_DesignationMaster" />
+          <NavigationProperty Name="M_EmployeeMasters1" Relationship="Self.FK_M_EmployeeMasters_M_EmployeeMasters" FromRole="M_EmployeeMasters" ToRole="M_EmployeeMasters1" />
+          <NavigationProperty Name="M_EmployeeMasters2" Relationship="Self.FK_M_EmployeeMasters_M_EmployeeMasters" FromRole="M_EmployeeMasters1" ToRole="M_EmployeeMasters" />
+          <Property Name="EmployeePic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Pwd" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="M_FunctionAreaMaster">
+          <Key>
+            <PropertyRef Name="FunctionAreaID" />
+          </Key>
+          <Property Name="FunctionAreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FunctionArea" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrderNo" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_IndustryMaster">
+          <Key>
+            <PropertyRef Name="IndustryID" />
+          </Key>
+          <Property Name="IndustryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IndustryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNo" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_LocationMasters">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryID" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrderBy" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_CandidateMasters" Relationship="Self.FK_M_CandidateMaters_M_LocationMasters" FromRole="M_LocationMasters" ToRole="M_CandidateMasters" />
+          <NavigationProperty Name="M_CommonMasterTable" Relationship="Self.FK_M_LocationMasters_M_CommonMasterTable" FromRole="M_LocationMasters" ToRole="M_CommonMasterTable" />
+          <NavigationProperty Name="M_CompanyMasters" Relationship="Self.FK_M_CompanyMasters_M_LocationMasters" FromRole="M_LocationMasters" ToRole="M_CompanyMasters" />
+          <NavigationProperty Name="M_RequirementMaster" Relationship="Self.FK_M_RequirementMaster_M_LocationMasters" FromRole="M_LocationMasters" ToRole="M_RequirementMaster" />
+        </EntityType>
+        <EntityType Name="M_RequirementMaster">
+          <Key>
+            <PropertyRef Name="RequirementID" />
+          </Key>
+          <Property Name="RequirementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequirementTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JobTitle_Designation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JobDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AnnualCTC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkExperience" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="KeySkills" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="JobLocationID" Type="Int32" Nullable="false" />
+          <Property Name="NoOfPosition" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="OpeningDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="JoiningDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RequirementStatusID" Type="Int32" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_CommonMasterTable" Relationship="Self.FK_M_RequirementMaster_M_CommonMasterTable" FromRole="M_RequirementMaster" ToRole="M_CommonMasterTable" />
+          <NavigationProperty Name="M_CompanyMasters" Relationship="Self.FK_M_RequirementMaster_M_CompanyMasters" FromRole="M_RequirementMaster" ToRole="M_CompanyMasters" />
+          <NavigationProperty Name="M_LocationMasters" Relationship="Self.FK_M_RequirementMaster_M_LocationMasters" FromRole="M_RequirementMaster" ToRole="M_LocationMasters" />
+        </EntityType>
+        <EntityType Name="M_RoleMaster">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_CandidateMasters" Relationship="Self.FK_M_CandidateMaters_M_RoleMaster" FromRole="M_RoleMaster" ToRole="M_CandidateMasters" />
+        </EntityType>
+        <EntityType Name="T_CandidateFollowUpDetails">
+          <Key>
+            <PropertyRef Name="CandidateFollowUpID" />
+          </Key>
+          <Property Name="CandidateFollowUpID" Type="Int32" Nullable="false" />
+          <Property Name="CandidateID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="ComSkillsID" Type="Int32" Nullable="false" />
+          <Property Name="InterViewDate" Type="DateTime" Precision="3" />
+          <Property Name="InterViewTime" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NextFollowUpDate" Type="DateTime" Precision="3" />
+          <Property Name="CandidateStatusID" Type="Int32" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_CandidateMasters" Relationship="Self.FK_T_CandidateFollowUpDetails_M_CandidateMasters" FromRole="T_CandidateFollowUpDetails" ToRole="M_CandidateMasters" />
+          <NavigationProperty Name="M_CommonMasterTable" Relationship="Self.FK_T_CandidateFollowUpDetails_M_CommonMasterTable" FromRole="T_CandidateFollowUpDetails" ToRole="M_CommonMasterTable" />
+          <NavigationProperty Name="M_CommonMasterTable1" Relationship="Self.FK_T_CandidateFollowUpDetails_M_CommonMasterTable1" FromRole="T_CandidateFollowUpDetails" ToRole="M_CommonMasterTable" />
+          <NavigationProperty Name="M_CompanyMasters" Relationship="Self.FK_T_CandidateFollowUpDetails_M_CompanyMasters" FromRole="T_CandidateFollowUpDetails" ToRole="M_CompanyMasters" />
+        </EntityType>
+        <EntityType Name="T_FinalCandidatePlacementDetails">
+          <Key>
+            <PropertyRef Name="FinalEmployeeID" />
+          </Key>
+          <Property Name="FinalEmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CandidateID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeTypeID" Type="Int32" Nullable="false" />
+          <Property Name="CTCOfferToCandidate" Type="Int32" />
+          <Property Name="CTCOfferByCompany" Type="Int32" />
+          <Property Name="DateOfJoining" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastWorkingDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_CandidateMasters" Relationship="Self.FK_T_FinalCandidatePlacementDetails_M_CandidateMasters" FromRole="T_FinalCandidatePlacementDetails" ToRole="M_CandidateMasters" />
+          <NavigationProperty Name="M_CommonMasterTable" Relationship="Self.FK_T_FinalCandidatePlacementDetails_M_CommonMasterTable" FromRole="T_FinalCandidatePlacementDetails" ToRole="M_CommonMasterTable" />
+          <NavigationProperty Name="M_CompanyMasters" Relationship="Self.FK_T_FinalCandidatePlacementDetails_M_CompanyMasters" FromRole="T_FinalCandidatePlacementDetails" ToRole="M_CompanyMasters" />
+        </EntityType>
+        <Association Name="FK_M_CandidateMaters_M_CommonMasterTable">
+          <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="0..1" />
+          <End Role="M_CandidateMasters" Type="Self.M_CandidateMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="M_CandidateMasters">
+              <PropertyRef Name="CandidateStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_CandidateMaters_M_CompanyMasters">
+          <End Role="M_CompanyMasters" Type="Self.M_CompanyMasters" Multiplicity="0..1" />
+          <End Role="M_CandidateMasters" Type="Self.M_CandidateMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CompanyMasters">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="M_CandidateMasters">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_CandidateMaters_M_LocationMasters">
+          <End Role="M_LocationMasters" Type="Self.M_LocationMasters" Multiplicity="1" />
+          <End Role="M_CandidateMasters" Type="Self.M_CandidateMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_LocationMasters">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="M_CandidateMasters">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_CandidateMaters_M_RoleMaster">
+          <End Role="M_RoleMaster" Type="Self.M_RoleMaster" Multiplicity="1" />
+          <End Role="M_CandidateMasters" Type="Self.M_CandidateMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_RoleMaster">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="M_CandidateMasters">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_CandidateFollowUpDetails_M_CandidateMasters">
+          <End Role="M_CandidateMasters" Type="Self.M_CandidateMasters" Multiplicity="1" />
+          <End Role="T_CandidateFollowUpDetails" Type="Self.T_CandidateFollowUpDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CandidateMasters">
+              <PropertyRef Name="CandidateID" />
+            </Principal>
+            <Dependent Role="T_CandidateFollowUpDetails">
+              <PropertyRef Name="CandidateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_FinalCandidatePlacementDetails_M_CandidateMasters">
+          <End Role="M_CandidateMasters" Type="Self.M_CandidateMasters" Multiplicity="1" />
+          <End Role="T_FinalCandidatePlacementDetails" Type="Self.T_FinalCandidatePlacementDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CandidateMasters">
+              <PropertyRef Name="CandidateID" />
+            </Principal>
+            <Dependent Role="T_FinalCandidatePlacementDetails">
+              <PropertyRef Name="CandidateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_EmployeeMasters_M_CommonMasterTable">
+          <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="1" />
+          <End Role="M_EmployeeMasters" Type="Self.M_EmployeeMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="M_EmployeeMasters">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_EmployeeMasters_M_CommonMasterTable1">
+          <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="1" />
+          <End Role="M_EmployeeMasters" Type="Self.M_EmployeeMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="M_EmployeeMasters">
+              <PropertyRef Name="GenderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_LocationMasters_M_CommonMasterTable">
+          <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="1" />
+          <End Role="M_LocationMasters" Type="Self.M_LocationMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="M_LocationMasters">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_RequirementMaster_M_CommonMasterTable">
+          <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="1" />
+          <End Role="M_RequirementMaster" Type="Self.M_RequirementMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="M_RequirementMaster">
+              <PropertyRef Name="RequirementStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_CandidateFollowUpDetails_M_CommonMasterTable">
+          <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="1" />
+          <End Role="T_CandidateFollowUpDetails" Type="Self.T_CandidateFollowUpDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_CandidateFollowUpDetails">
+              <PropertyRef Name="ComSkillsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_CandidateFollowUpDetails_M_CommonMasterTable1">
+          <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="0..1" />
+          <End Role="T_CandidateFollowUpDetails" Type="Self.T_CandidateFollowUpDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_CandidateFollowUpDetails">
+              <PropertyRef Name="CandidateStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_FinalCandidatePlacementDetails_M_CommonMasterTable">
+          <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="1" />
+          <End Role="T_FinalCandidatePlacementDetails" Type="Self.T_FinalCandidatePlacementDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_FinalCandidatePlacementDetails">
+              <PropertyRef Name="EmployeeTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_CompanyMasters_M_LocationMasters">
+          <End Role="M_LocationMasters" Type="Self.M_LocationMasters" Multiplicity="1" />
+          <End Role="M_CompanyMasters" Type="Self.M_CompanyMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_LocationMasters">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="M_CompanyMasters">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_RequirementMaster_M_CompanyMasters">
+          <End Role="M_CompanyMasters" Type="Self.M_CompanyMasters" Multiplicity="0..1" />
+          <End Role="M_RequirementMaster" Type="Self.M_RequirementMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CompanyMasters">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="M_RequirementMaster">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_CandidateFollowUpDetails_M_CompanyMasters">
+          <End Role="M_CompanyMasters" Type="Self.M_CompanyMasters" Multiplicity="1" />
+          <End Role="T_CandidateFollowUpDetails" Type="Self.T_CandidateFollowUpDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CompanyMasters">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="T_CandidateFollowUpDetails">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_FinalCandidatePlacementDetails_M_CompanyMasters">
+          <End Role="M_CompanyMasters" Type="Self.M_CompanyMasters" Multiplicity="1" />
+          <End Role="T_FinalCandidatePlacementDetails" Type="Self.T_FinalCandidatePlacementDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CompanyMasters">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="T_FinalCandidatePlacementDetails">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_EmployeeMasters_M_DesignationMaster">
+          <End Role="M_DesignationMaster" Type="Self.M_DesignationMaster" Multiplicity="1" />
+          <End Role="M_EmployeeMasters" Type="Self.M_EmployeeMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_DesignationMaster">
+              <PropertyRef Name="DesignationID" />
+            </Principal>
+            <Dependent Role="M_EmployeeMasters">
+              <PropertyRef Name="DesignationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_EmployeeMasters_M_EmployeeMasters">
+          <End Role="M_EmployeeMasters" Type="Self.M_EmployeeMasters" Multiplicity="0..1" />
+          <End Role="M_EmployeeMasters1" Type="Self.M_EmployeeMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_EmployeeMasters">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="M_EmployeeMasters1">
+              <PropertyRef Name="ManagerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_RequirementMaster_M_LocationMasters">
+          <End Role="M_LocationMasters" Type="Self.M_LocationMasters" Multiplicity="1" />
+          <End Role="M_RequirementMaster" Type="Self.M_RequirementMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_LocationMasters">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="M_RequirementMaster">
+              <PropertyRef Name="JobLocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HRM_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="M_CandidateMasters" EntityType="Self.M_CandidateMasters" />
+          <EntitySet Name="M_CommonMasterTable" EntityType="Self.M_CommonMasterTable" />
+          <EntitySet Name="M_CompanyMasters" EntityType="Self.M_CompanyMasters" />
+          <EntitySet Name="M_DesignationMaster" EntityType="Self.M_DesignationMaster" />
+          <EntitySet Name="M_EmployeeMasters" EntityType="Self.M_EmployeeMasters" />
+          <EntitySet Name="M_FunctionAreaMaster" EntityType="Self.M_FunctionAreaMaster" />
+          <EntitySet Name="M_IndustryMaster" EntityType="Self.M_IndustryMaster" />
+          <EntitySet Name="M_LocationMasters" EntityType="Self.M_LocationMasters" />
+          <EntitySet Name="M_RequirementMaster" EntityType="Self.M_RequirementMaster" />
+          <EntitySet Name="M_RoleMaster" EntityType="Self.M_RoleMaster" />
+          <EntitySet Name="T_CandidateFollowUpDetails" EntityType="Self.T_CandidateFollowUpDetails" />
+          <EntitySet Name="T_FinalCandidatePlacementDetails" EntityType="Self.T_FinalCandidatePlacementDetails" />
+          <AssociationSet Name="FK_M_CandidateMaters_M_CommonMasterTable" Association="Self.FK_M_CandidateMaters_M_CommonMasterTable">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="M_CandidateMasters" EntitySet="M_CandidateMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_CandidateMaters_M_CompanyMasters" Association="Self.FK_M_CandidateMaters_M_CompanyMasters">
+            <End Role="M_CompanyMasters" EntitySet="M_CompanyMasters" />
+            <End Role="M_CandidateMasters" EntitySet="M_CandidateMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_CandidateMaters_M_LocationMasters" Association="Self.FK_M_CandidateMaters_M_LocationMasters">
+            <End Role="M_LocationMasters" EntitySet="M_LocationMasters" />
+            <End Role="M_CandidateMasters" EntitySet="M_CandidateMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_CandidateMaters_M_RoleMaster" Association="Self.FK_M_CandidateMaters_M_RoleMaster">
+            <End Role="M_RoleMaster" EntitySet="M_RoleMaster" />
+            <End Role="M_CandidateMasters" EntitySet="M_CandidateMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_CandidateFollowUpDetails_M_CandidateMasters" Association="Self.FK_T_CandidateFollowUpDetails_M_CandidateMasters">
+            <End Role="M_CandidateMasters" EntitySet="M_CandidateMasters" />
+            <End Role="T_CandidateFollowUpDetails" EntitySet="T_CandidateFollowUpDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_FinalCandidatePlacementDetails_M_CandidateMasters" Association="Self.FK_T_FinalCandidatePlacementDetails_M_CandidateMasters">
+            <End Role="M_CandidateMasters" EntitySet="M_CandidateMasters" />
+            <End Role="T_FinalCandidatePlacementDetails" EntitySet="T_FinalCandidatePlacementDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_EmployeeMasters_M_CommonMasterTable" Association="Self.FK_M_EmployeeMasters_M_CommonMasterTable">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="M_EmployeeMasters" EntitySet="M_EmployeeMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_EmployeeMasters_M_CommonMasterTable1" Association="Self.FK_M_EmployeeMasters_M_CommonMasterTable1">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="M_EmployeeMasters" EntitySet="M_EmployeeMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_LocationMasters_M_CommonMasterTable" Association="Self.FK_M_LocationMasters_M_CommonMasterTable">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="M_LocationMasters" EntitySet="M_LocationMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_RequirementMaster_M_CommonMasterTable" Association="Self.FK_M_RequirementMaster_M_CommonMasterTable">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="M_RequirementMaster" EntitySet="M_RequirementMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_CandidateFollowUpDetails_M_CommonMasterTable" Association="Self.FK_T_CandidateFollowUpDetails_M_CommonMasterTable">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="T_CandidateFollowUpDetails" EntitySet="T_CandidateFollowUpDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_CandidateFollowUpDetails_M_CommonMasterTable1" Association="Self.FK_T_CandidateFollowUpDetails_M_CommonMasterTable1">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="T_CandidateFollowUpDetails" EntitySet="T_CandidateFollowUpDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_FinalCandidatePlacementDetails_M_CommonMasterTable" Association="Self.FK_T_FinalCandidatePlacementDetails_M_CommonMasterTable">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="T_FinalCandidatePlacementDetails" EntitySet="T_FinalCandidatePlacementDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_CompanyMasters_M_LocationMasters" Association="Self.FK_M_CompanyMasters_M_LocationMasters">
+            <End Role="M_LocationMasters" EntitySet="M_LocationMasters" />
+            <End Role="M_CompanyMasters" EntitySet="M_CompanyMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_RequirementMaster_M_CompanyMasters" Association="Self.FK_M_RequirementMaster_M_CompanyMasters">
+            <End Role="M_CompanyMasters" EntitySet="M_CompanyMasters" />
+            <End Role="M_RequirementMaster" EntitySet="M_RequirementMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_CandidateFollowUpDetails_M_CompanyMasters" Association="Self.FK_T_CandidateFollowUpDetails_M_CompanyMasters">
+            <End Role="M_CompanyMasters" EntitySet="M_CompanyMasters" />
+            <End Role="T_CandidateFollowUpDetails" EntitySet="T_CandidateFollowUpDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_FinalCandidatePlacementDetails_M_CompanyMasters" Association="Self.FK_T_FinalCandidatePlacementDetails_M_CompanyMasters">
+            <End Role="M_CompanyMasters" EntitySet="M_CompanyMasters" />
+            <End Role="T_FinalCandidatePlacementDetails" EntitySet="T_FinalCandidatePlacementDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_EmployeeMasters_M_DesignationMaster" Association="Self.FK_M_EmployeeMasters_M_DesignationMaster">
+            <End Role="M_DesignationMaster" EntitySet="M_DesignationMaster" />
+            <End Role="M_EmployeeMasters" EntitySet="M_EmployeeMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_EmployeeMasters_M_EmployeeMasters" Association="Self.FK_M_EmployeeMasters_M_EmployeeMasters">
+            <End Role="M_EmployeeMasters" EntitySet="M_EmployeeMasters" />
+            <End Role="M_EmployeeMasters1" EntitySet="M_EmployeeMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_RequirementMaster_M_LocationMasters" Association="Self.FK_M_RequirementMaster_M_LocationMasters">
+            <End Role="M_LocationMasters" EntitySet="M_LocationMasters" />
+            <End Role="M_RequirementMaster" EntitySet="M_RequirementMaster" />
+          </AssociationSet>
+          <EntitySet Name="M_NavigationMaster" EntityType="HRM_DBModel.M_NavigationMaster" />
+          <AssociationSet Name="FK_M_NavigationMaster_M_NavigationMaster" Association="HRM_DBModel.FK_M_NavigationMaster_M_NavigationMaster">
+            <End Role="M_NavigationMaster" EntitySet="M_NavigationMaster" />
+            <End Role="M_NavigationMaster1" EntitySet="M_NavigationMaster" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="M_NavigationMaster">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MenuLink" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ParantMenuID" Type="Int32" />
+          <Property Name="MenuType" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_NavigationMaster1" Relationship="HRM_DBModel.FK_M_NavigationMaster_M_NavigationMaster" FromRole="M_NavigationMaster" ToRole="M_NavigationMaster1" />
+          <NavigationProperty Name="M_NavigationMaster2" Relationship="HRM_DBModel.FK_M_NavigationMaster_M_NavigationMaster" FromRole="M_NavigationMaster1" ToRole="M_NavigationMaster" />
+        </EntityType>
+        <Association Name="FK_M_NavigationMaster_M_NavigationMaster">
+          <End Type="HRM_DBModel.M_NavigationMaster" Role="M_NavigationMaster" Multiplicity="0..1" />
+          <End Type="HRM_DBModel.M_NavigationMaster" Role="M_NavigationMaster1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_NavigationMaster">
+              <PropertyRef Name="MenuID" />
+            </Principal>
+            <Dependent Role="M_NavigationMaster1">
+              <PropertyRef Name="ParantMenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HRM_DBModelStoreContainer" CdmEntityContainer="HRM_DBEntities">
+          <EntitySetMapping Name="M_CandidateMasters">
+            <EntityTypeMapping TypeName="HRM_DBModel.M_CandidateMasters">
+              <MappingFragment StoreEntitySet="M_CandidateMasters">
+                <ScalarProperty Name="CandidateID" ColumnName="CandidateID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="DesiredCity" ColumnName="DesiredCity" />
+                <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
+                <ScalarProperty Name="KeySkills" ColumnName="KeySkills" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CurrentCTC" ColumnName="CurrentCTC" />
+                <ScalarProperty Name="AspectedCTC" ColumnName="AspectedCTC" />
+                <ScalarProperty Name="TotalExperience" ColumnName="TotalExperience" />
+                <ScalarProperty Name="CV" ColumnName="CV" />
+                <ScalarProperty Name="CandidateStatusID" ColumnName="CandidateStatusID" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_CommonMasterTable">
+            <EntityTypeMapping TypeName="HRM_DBModel.M_CommonMasterTable">
+              <MappingFragment StoreEntitySet="M_CommonMasterTable">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FieldValue" ColumnName="FieldValue" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_CompanyMasters">
+            <EntityTypeMapping TypeName="HRM_DBModel.M_CompanyMasters">
+              <MappingFragment StoreEntitySet="M_CompanyMasters">
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="CompanyContactNo" ColumnName="CompanyContactNo" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="Locality" ColumnName="Locality" />
+                <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_DesignationMaster">
+            <EntityTypeMapping TypeName="HRM_DBModel.M_DesignationMaster">
+              <MappingFragment StoreEntitySet="M_DesignationMaster">
+                <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_EmployeeMasters">
+            <EntityTypeMapping TypeName="HRM_DBModel.M_EmployeeMasters">
+              <MappingFragment StoreEntitySet="M_EmployeeMasters">
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+                <ScalarProperty Name="EmployeePic" ColumnName="EmployeePic" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="PersonalEmailID" ColumnName="PersonalEmailID" />
+                <ScalarProperty Name="CEmailID" ColumnName="CEmailID" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="EmergencyContactNo" ColumnName="EmergencyContactNo" />
+                <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
+                <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_FunctionAreaMaster">
+            <EntityTypeMapping TypeName="HRM_DBModel.M_FunctionAreaMaster">
+              <MappingFragment StoreEntitySet="M_FunctionAreaMaster">
+                <ScalarProperty Name="FunctionAreaID" ColumnName="FunctionAreaID" />
+                <ScalarProperty Name="FunctionArea" ColumnName="FunctionArea" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_IndustryMaster">
+            <EntityTypeMapping TypeName="HRM_DBModel.M_IndustryMaster">
+              <MappingFragment StoreEntitySet="M_IndustryMaster">
+                <ScalarProperty Name="IndustryID" ColumnName="IndustryID" />
+                <ScalarProperty Name="IndustryName" ColumnName="IndustryName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_LocationMasters">
+            <EntityTypeMapping TypeName="HRM_DBModel.M_LocationMasters">
+              <MappingFragment StoreEntitySet="M_LocationMasters">
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_RequirementMaster">
+            <EntityTypeMapping TypeName="HRM_DBModel.M_RequirementMaster">
+              <MappingFragment StoreEntitySet="M_RequirementMaster">
+                <ScalarProperty Name="RequirementID" ColumnName="RequirementID" />
+                <ScalarProperty Name="RequirementTitle" ColumnName="RequirementTitle" />
+                <ScalarProperty Name="JobTitle_Designation" ColumnName="JobTitle_Designation" />
+                <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+                <ScalarProperty Name="AnnualCTC" ColumnName="AnnualCTC" />
+                <ScalarProperty Name="WorkExperience" ColumnName="WorkExperience" />
+                <ScalarProperty Name="KeySkills" ColumnName="KeySkills" />
+                <ScalarProperty Name="JobLocationID" ColumnName="JobLocationID" />
+                <ScalarProperty Name="NoOfPosition" ColumnName="NoOfPosition" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="OpeningDate" ColumnName="OpeningDate" />
+                <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+                <ScalarProperty Name="RequirementStatusID" ColumnName="RequirementStatusID" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_RoleMaster">
+            <EntityTypeMapping TypeName="HRM_DBModel.M_RoleMaster">
+              <MappingFragment StoreEntitySet="M_RoleMaster">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleText" ColumnName="RoleText" />
+                <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_CandidateFollowUpDetails">
+            <EntityTypeMapping TypeName="HRM_DBModel.T_CandidateFollowUpDetails">
+              <MappingFragment StoreEntitySet="T_CandidateFollowUpDetails">
+                <ScalarProperty Name="CandidateFollowUpID" ColumnName="CandidateFollowUpID" />
+                <ScalarProperty Name="CandidateID" ColumnName="CandidateID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ComSkillsID" ColumnName="ComSkillsID" />
+                <ScalarProperty Name="InterViewDate" ColumnName="InterViewDate" />
+                <ScalarProperty Name="InterViewTime" ColumnName="InterViewTime" />
+                <ScalarProperty Name="NextFollowUpDate" ColumnName="NextFollowUpDate" />
+                <ScalarProperty Name="CandidateStatusID" ColumnName="CandidateStatusID" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_FinalCandidatePlacementDetails">
+            <EntityTypeMapping TypeName="HRM_DBModel.T_FinalCandidatePlacementDetails">
+              <MappingFragment StoreEntitySet="T_FinalCandidatePlacementDetails">
+                <ScalarProperty Name="FinalEmployeeID" ColumnName="FinalEmployeeID" />
+                <ScalarProperty Name="CandidateID" ColumnName="CandidateID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="EmployeeTypeID" ColumnName="EmployeeTypeID" />
+                <ScalarProperty Name="CTCOfferToCandidate" ColumnName="CTCOfferToCandidate" />
+                <ScalarProperty Name="CTCOfferByCompany" ColumnName="CTCOfferByCompany" />
+                <ScalarProperty Name="DateOfJoining" ColumnName="DateOfJoining" />
+                <ScalarProperty Name="LastWorkingDate" ColumnName="LastWorkingDate" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_NavigationMaster">
+            <EntityTypeMapping TypeName="HRM_DBModel.M_NavigationMaster">
+              <MappingFragment StoreEntitySet="M_NavigationMaster">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="MenuType" ColumnName="MenuType" />
+                <ScalarProperty Name="ParantMenuID" ColumnName="ParantMenuID" />
+                <ScalarProperty Name="MenuLink" ColumnName="MenuLink" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
