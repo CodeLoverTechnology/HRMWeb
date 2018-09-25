@@ -2,67 +2,59 @@
 @{
     ViewBag.Title = "ApplyLeave";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    <style>
-        .control-label {
-            width:35%;
-            float:left;
-        }
-        .gj-datepicker {
-            width: 65%;
-        }
-        .form-control {
-            display: block;
-            width: 65%;
-            max-width: none;
-        }
-    </style>
+
 }
 
-<h2>ApplyLeave</h2>
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
-        <div style="width:100%; max-width:414px;margin:auto;">
-            <div class="form-group">
-                <label class="control-label">From Date</label>
-                <input id="FromDate" type="text" name="FromDate" value="" format="dd/mm/yyyy" class="form-control"  placeholder="dd/mm/yyyy" required="required" />
-            </div>
-            <div class="form-group">
-                <label class="control-label">To Date</label>
-                <input id="ToDate" type="text" name="ToDate" value="" format="dd/mm/yyyy" class="form-control"  placeholder="dd/mm/yyyy" required="required" />
-            </div>
-            <div class="form-group">
-                <label class="control-label">No fo Leave</label>
-                <label class="control-label">______________</label>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Type of Leave</label>
-                <select class="form-control" id="TypeOfLeave">
-                    <option>---Select---</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Approved By</label>
-                <select class="form-control" id="ApprovedBy">
-                    <option>---Select---</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <a href="#" class="btn btn-primary">Gueue</a>
-                <a href="#" class="btn btn-success">Apply</a>
-                <a href="#" class="btn btn-danger">Cancel</a>
-                <div class="clearfix"></div>
+        <div id="TimeSheetLeave" class="border shadow mt-4 p-0">
+            <h3 class="bg-primary text-white p-1 pl-3 mt-0">Apply Leave</h3>
+            <div class="p-3">
+                <div class="form-group">
+                    <label id="lblFromDate" class="control-label">From Date</label>
+                    <input id="txtFromDate" type="text" name="txtFromDate" value="" format="dd/mm/yyyy" class="form-control" placeholder="dd/mm/yyyy" required="required" />
+                </div>
+                <div class="form-group">
+                    <label id="lblToDate" class="control-label">To Date</label>
+                    <input id="txtToDate" type="text" name="txtToDate" value="" format="dd/mm/yyyy" class="form-control" placeholder="dd/mm/yyyy" required="required" />
+                </div>
+                <div class="form-group">
+                    <label id="lblNoFoLeave" class="control-label">No fo Leave</label>
+                    <input type="text" id="txtNoFoLeave" name="txtNoFoLeave" class="form-control-Label" readonly="readonly" />
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <label id="lblTypeOfLeave" class="control-label">Type of Leave</label>
+                    <select class="form-control" id="txtTypeOfLeave" name="txtTypeOfLeave">
+                        <option>---Select---</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label id="lblApprovedBy" class="control-label">Approved By</label>
+                    <select class="form-control" id="txtApprovedBy" name="txtApprovedBy">
+                        <option>---Select---</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div class="text-right mt-5">
+                        <a href="#" class="btn btn-primary">Gueue</a>
+                        <a href="#" class="btn btn-success">Apply</a>
+                        <a href="#" class="btn btn-danger">Cancel</a>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    </div>
 
 <script>
-    $('#FromDate').datepicker({
+    $('#txtFromDate').datepicker({
         uiLibrary: 'bootstrap4'
     });
 </script>
 <script>
-    $('#ToDate').datepicker({
+    $('#txtToDate').datepicker({
         uiLibrary: 'bootstrap4'
     });
 </script>

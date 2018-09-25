@@ -1,0 +1,108 @@
+﻿body {
+}
+
+.control-label {
+    display: inline-block;
+    margin-bottom: 0px;
+    margin-top: 1px;
+    font-weight: normal;
+    width: 35%;
+    float: left;
+    text-align: left;
+}
+.form-control {
+    display: block;
+    width: 65%;
+    max-width: none;
+    height: 25px;
+    padding: 1px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #555555;
+    vertical-align: middle;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.form-control-detail {
+    display: block;
+    width: 65%;
+    max-width: none;
+    height: 25px;
+    padding: 1px 12px;
+}
+.form-control-Label {
+    display: block;
+    width: 65%;
+    max-width: none;
+    height: 25px;
+    padding: 1px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #555555;
+    vertical-align: middle;
+    background-color: #ffffff;
+    border: 0px solid #cccccc;
+    border-bottom: 1px solid #ccc;
+    border-bottom-style: dashed;
+    box-shadow: 0px 0px 0px 0px #ccc;
+    border-radius: 0px;
+}
+.gj-datepicker {
+    width: 65%;
+}
+#ApplyLeave {
+    width: 100%;
+    max-width: 414px;
+    margin: auto;
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0rem;
+}
+#TimeSheetLeave {
+    width: 100%;
+    max-width: 414px;
+    margin: auto;
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0rem;
+}
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.form-group {
+    margin-bottom: 7px;
+}
+.gj-datepicker-bootstrap [role=right-icon] button {
+    width: 38px !important;
+    position: relative !important;
+    border: 1px solid #ced4da !important;
+    background: #ced4da !important;
+    padding: 3px 5px !important;
+}
+    .gj-datepicker-bootstrap [role=right-icon] button .gj-icon, .gj-datepicker-bootstrap [role=right-icon] button .material-icons {
+        position: absolute !important;
+        font-size: 20px !important;
+        top: 3px !important;
+        left: 9px !important;
+    }

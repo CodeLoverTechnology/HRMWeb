@@ -241,6 +241,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\Logo-XenialiQ-Small.png" />
+    <Content Include="Content\Styles.css" />
     <Content Include="DataModel\HRMDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>HRMDataModel.Context.cs</LastGenOutput>
@@ -345,6 +346,10 @@
     <Content Include="Views\DesignationMaster\Details.cshtml" />
     <Content Include="Views\DesignationMaster\Edit.cshtml" />
     <Content Include="Views\DesignationMaster\Index.cshtml" />
+    <Content Include="Views\M_EmployeeMasters\ApplyLeave.cshtml" />
+    <Content Include="Views\M_EmployeeMasters\TimeSheet_Apply.cshtml" />
+    <Content Include="Views\M_EmployeeMasters\TimeSheet_Index.cshtml" />
+    <Content Include="Views\M_EmployeeMasters\Show_TimeSheet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

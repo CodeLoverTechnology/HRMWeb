@@ -151,5 +151,17 @@ namespace HRMWeb.Controllers
         {
             return View();
         }
+        public ActionResult TimeSheet_Apply()
+        {
+            return View();
+        }
+        public ActionResult TimeSheet_Index()
+        {
+            return View();
+        }
+        public ActionResult Show_TimeSheet()
+        {
+            return View();
+        }
     }
 }
