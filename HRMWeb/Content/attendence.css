@@ -1,0 +1,113 @@
+
+
+.Attendence {
+    background-image: url(Images/b.jpg);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: whitesmoke;
+    background-size: cover;
+    background-attachment: scroll;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    right: 0;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+}
+.he{
+    size: 2px;
+    color: whitesmoke;
+}
+
+.Attendence .cont {
+    background-color: rgba(10, 5, 3, 0.363);
+    margin: 10% auto 0px auto;
+    max-width: 700px;
+    width: 100%;
+    -webkit-animation: mymove 10s infinite; /* Safari 4.0 - 8.0 */
+    animation: mymove 10s infinite;
+}
+  
+.container-login100-form-btn {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .login100-form-btn {
+    font-family: Poppins-Medium;
+    font-size: 16px;
+    color: #555555;
+    line-height: 1.2;
+  
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    min-width: 120px;
+    height: 50px;
+    border-radius: 25px;
+  
+    background: #9152f8;
+    background: -webkit-linear-gradient(bottom, #7579ff, #b224ef);
+    background: -o-linear-gradient(bottom, #7579ff, #b224ef);
+    background: -moz-linear-gradient(bottom, #7579ff, #b224ef);
+    background: linear-gradient(bottom, #7579ff, #b224ef);
+    position: relative;
+    z-index: 1;
+  
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+  
+  .login100-form-btn::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    opacity: 1;
+  
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+  
+  .login100-form-btn:hover {
+    color: #fff;
+  }
+  
+  .login100-form-btn:hover:before {
+    opacity: 0;
+  }
+
+  #myDIV {
+
+    
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes mymove {
+    50% {box-shadow: 10px 20px 30px rgb(0, 0, 5);}
+}
+
+@keyframes mymove {
+    50% {box-shadow: 10px 20px 30px rgb(1, 1, 15);}
+}

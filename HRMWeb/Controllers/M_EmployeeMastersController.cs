@@ -163,5 +163,13 @@ namespace HRMWeb.Controllers
         {
             return View();
         }
+        public ActionResult Attendance_Management()
+        {
+            return View();
+        }
+        public ActionResult Calander()
+        {
+            return View();
+        }
     }
 }
