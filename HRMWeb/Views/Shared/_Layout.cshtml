@@ -7,10 +7,15 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/Styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
-<body>
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-        @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+<body class="body">
+    <nav class="navbar navbar-expand-md bg-danger navbar-dark fixed-top pt-0 pb-0">
+        <a class="navbar-brand mr-1 pt-0 pb-0" href="index.html">
+            <div class="logo">
+                <img src="~/Content/Images/Logo-XenialiQ-Small.png" />
+            </div>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
