@@ -6,3 +6,5 @@
 /.vs/HRMWeb
 /.vs/config/applicationhost.config
 /HRMWeb/obj/Debug
+/HRMWeb/Properties/PublishProfiles
+/HRMWeb/obj/Release
