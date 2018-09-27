@@ -3,6 +3,29 @@
     padding-bottom: 0px;
     font-size: 14px;
 }
+    body.body {
+        padding-top: 55px;
+        padding-bottom: 0px;
+        font-size: 14px;
+    }
+
+fieldset {
+    padding: 10px 20px 10px 20px;
+    margin: 0 2px;
+    border: 1px solid silver;
+    min-height: 300px;
+}
+legend {
+    display: block;
+    width: auto;
+    padding: 0 10px;
+    margin-bottom: 5px;
+    font-size: 21px;
+    line-height: inherit;
+    color: #333;
+    border: 0;
+    border-bottom: 0 solid #e5e5e5;
+}
 
 #login {
     position: absolute;
@@ -24,6 +47,30 @@
     margin: 6% auto;
     padding: 10px;
     background: #00000012;
+}
+#Cont_Form .form-group .input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    width: 65%;
+}
+#Cont_Form .input-group-addon {
+    padding: 6px 0px;
+    font-size: 14px;
+    font-weight: normal;
+    min-width: 20px;
+    line-height: 1;
+    text-align: center;
+    background-color: #eeeeee;
+    border: 1px solid #cccccc;
+    border-radius: 0px;
+}
+#Cont_Form .input-group .form-control {
+    width: 100%;
+    margin-bottom: 0;
+}
+#Cont_Form .input-group-addon, .input-group-btn, .input-group .form-control {
+    display: table-cell;
 }
 
 .control-label {
@@ -57,8 +104,8 @@
     display: block;
     width: 65%;
     max-width: none;
-    height: 25px;
-    padding: 1px 12px;
+    height: 30px;
+    padding: 8px 12px 0px 12px;
 }
 .form-control-Label {
     display: block;
@@ -91,8 +138,8 @@
 }
 #TimeSheetLeave {
     width: 100%;
-    max-width: 414px;
-    margin: auto;
+    max-width: 470px;
+    margin: 0px auto 10px auto;
     padding: 1rem;
     background-color: #fff;
     border: 1px solid #dee2e6;
