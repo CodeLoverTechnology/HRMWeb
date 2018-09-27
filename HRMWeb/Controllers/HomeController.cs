@@ -49,11 +49,12 @@ namespace HRMWeb.Controllers
                 var EmployeeDetails = db.M_EmployeeMasters.Where(x => x.EmployeeID == EmployeeID && x.Pwd == Pwd);
                 if (EmployeeDetails.FirstOrDefault().EmployeeID == EmployeeID && EmployeeDetails.FirstOrDefault().Pwd==Pwd)
                 {
-
+                    Session["LoginUserID"] = EmployeeID;
+                    return RedirectToAction("Dashboard", "M_EmployeeMasters", null);
                 }
                 else
                 {
-
+                    return View();
                 }
 
 
