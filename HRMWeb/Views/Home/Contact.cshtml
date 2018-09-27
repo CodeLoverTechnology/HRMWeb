@@ -1,17 +1,84 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <h2 class="bg-light shadow p-2 mt-4">HRM CONTACT US</h2>
+    </div>
+</div>
+<div class="mt-4">
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="img-thumbnail shadow p-3 mb-3">
+                <fieldset>
+                    <legend>HRM ADDRESS </legend>                    
+                    <address>
+                        <p> One Microsoft Way</p>
+                        <p>Redmond, WA 98052-6399,</p>
+                        <p><b>Mobile No. : </b>+425.555.0100</p>
+                        <p><b>Info : </b><a href="mailto:Support@example.com">Support@example.com</a></p>
+                    </address>
+                    <div class="arrows">
+                        <span class="ar-right2"></span>
+                    </div>
+                    </fieldset>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div id="Cont_Form" class="img-thumbnail shadow p-3 mb-3">
+                <form action="http://IDRKPCc.com/Home/Contact" id="contact" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+                    <fieldset>
+                        <legend>HRM ENQUIRY </legend>
+                        <div class="form-group has-info">
+                            <label class="control-label">Name</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input type="text" name="name" value="" class="form-control " placeholder="Enter full name">
+                            </div>
+                            <!-- /.input-group -->
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group has-info">
+                            <label class="control-label">Email Id</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input type="text" name="email" value="" class="form-control " placeholder="Enter email">
+                            </div>
+                            <!-- /.input-group -->
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group has-info">
+                            <label class="control-label">Mobile No</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                <input type="text" name="mobile" value="" class="form-control " placeholder="Enter mobile">
+                            </div>
+                            <!-- /.input-group -->
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group has-info">
+                            <label class="control-label">Subject</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                </span>
+                                <textarea name="message" rows="3" class="form-control" placeholder="Enter your message"></textarea>
+                            </div>
+                            <!-- /.input-group -->
+                            <div class="clearfix"></div>
+                        </div>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+                        <div class="row-fluid">
+                            <div style="text-align:center;">
+                                <button type="submit" class="btn btn-primary btn-social "> <i class="fa fa-share-square-o" aria-hidden="true"></i> SUBMIT </button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

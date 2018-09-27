@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Attendance_Management";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="Attendence">
+    <div class="cont">
+        <form>
+            <div class="form-group text-center">
+                <h2>Attendance Management</h2>
+            </div><br>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="form-group ">
+                        <div class="container-login100-form-btn btn-block">
+                            <button onclick="myFunction()" class="login100-form-btn">
+                                Submit Attendance
+                            </button><br><br><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <div class="container-login100-form-btn ">
+                            <button class="login100-form-btn " formaction="Calander">
+                                View Attendance
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+function myFunction() {
+	alert("Your attendance submit successfully!!!!");
+}
+  $(function() {
+    $('#datetimepicker2').datetimepicker({
+      language: 'en',
+      pick12HourFormat: true
+    });
+  });
+</script>

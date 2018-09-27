@@ -146,5 +146,34 @@ namespace HRMWeb.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult ApplyLeave()
+        {
+            return View();
+        }
+        public ActionResult TimeSheet_Apply()
+        {
+            return View();
+        }
+        public ActionResult TimeSheet_Index()
+        {
+            return View();
+        }
+        public ActionResult Show_TimeSheet()
+        {
+            return View();
+        }
+        public ActionResult Attendance_Management()
+        {
+            return View();
+        }
+        public ActionResult Calander()
+        {
+            return View();
+        }
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
     }
 }

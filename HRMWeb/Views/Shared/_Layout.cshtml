@@ -3,12 +3,40 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - HRM Kaushalya Technologies Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+<body class="body">
+    <nav class="navbar navbar-expand-md bg-danger navbar-dark fixed-top pt-0 pb-0">
+        <a class="navbar-brand mr-1 pt-0 pb-0" href="index.html">
+            <div class="logo">
+                <img src="~/Content/Images/Logo-XenialiQ-Small.png" />
+            </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/Home/Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/Home/About">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/Home/Contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/Home/Login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -27,13 +55,16 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div>*@
     <div class="container body-content">
         @RenderBody()
     </div>
     <hr />
-    <footer>
-        <p>&copy; @DateTime.Now.Year - </p>
+    <footer class="fixed-bottom bg-dark pt-2 pl-3 pr-3">
+        <p class="text-white float-left" style="font-family:Arial;">Copy Right <span class="glyphicon glyphicon-copyright-mark"><span style="font-family:Arial;"> 2018 All reserved HRM</span></span></p>
+        <div class="float-right">
+            <p class="text-white " style="font-family:Arial;">Presented By :<a href="http://codelovertechnology.com/" class="text-light" target="_blank"> CodeLover Technology</a></p>
+        </div>
     </footer>
 
     @Scripts.Render("~/bundles/jquery")
