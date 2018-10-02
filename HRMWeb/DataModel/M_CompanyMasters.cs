@@ -21,6 +21,7 @@ namespace HRMWeb.DataModel
             this.M_RequirementMaster = new HashSet<M_RequirementMaster>();
             this.T_CandidateFollowUpDetails = new HashSet<T_CandidateFollowUpDetails>();
             this.T_FinalCandidatePlacementDetails = new HashSet<T_FinalCandidatePlacementDetails>();
+            this.M_ProjectMaster = new HashSet<M_ProjectMaster>();
         }
     
         public int CompanyID { get; set; }
@@ -47,5 +48,7 @@ namespace HRMWeb.DataModel
         public virtual ICollection<T_CandidateFollowUpDetails> T_CandidateFollowUpDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_FinalCandidatePlacementDetails> T_FinalCandidatePlacementDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<M_ProjectMaster> M_ProjectMaster { get; set; }
     }
 }

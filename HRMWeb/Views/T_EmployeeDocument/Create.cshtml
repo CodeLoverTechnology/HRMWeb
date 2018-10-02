@@ -1,0 +1,70 @@
+﻿@model HRMWeb.DataModel.T_EmployeeDocument
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="border shadow pb-4">
+    <h2 class="bg-primary text-white p-1 pl-3">Upload New Documents</h2>
+    <hr />
+
+    @using (Html.BeginForm("Create", "T_EmployeeDocument", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="container-fluid">
+            <div class="form-horizontal">
+
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.EmployeeID, "EmployeeID", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("EmployeeID", null, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                @Html.ValidationMessageFor(model => model.EmployeeID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ReferenceDoc, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.ReferenceDoc, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ReferenceDoc, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.FileName, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <input type="file" id="FileName" name="FileName" />
+                                @Html.ValidationMessageFor(model => model.FileName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.FileDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <textarea class="form-control" id="FileDescription" name="FileDescription" rows="5"></textarea>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+    <hr />
+
+
+    <div class="form-group bg-primary text-center p-2 p-md-1">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Upload" class="btn btn-success" />
+            <a href="~/T_EmployeeDocument/Index" class="btn btn-warning text-white">Back to List</a>
+        </div>
+    </div>
+</div>
+
+

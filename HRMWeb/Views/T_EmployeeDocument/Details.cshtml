@@ -1,0 +1,125 @@
+﻿@model HRMWeb.DataModel.T_EmployeeDocument
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="border shadow pb-4">
+    <div class="btn-primary">
+        <div class="h2 text-left">
+            Employee Document List
+            <div class="text-right" style="padding-right:5px;float:right;">
+                <a href="~/T_EmployeeDocument/Index" class="btn btn-success">Upload Documents</a>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <table class="dl-horizontal table table-hover">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.M_EmployeeMasters.EmployeeID)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.M_EmployeeMasters.EmployeeID) -  @Html.DisplayFor(model => model.M_EmployeeMasters.EmployeeName)
+            </td>
+        </tr>
+        @*<tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.M_EmployeeMasters.EmployeeName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.M_EmployeeMasters.EmployeeName)
+                </td>
+            </tr>*@
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.ReferenceDoc)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.ReferenceDoc)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.FileName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.FileName)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.FileDescription)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.FileDescription)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.CreatedBy)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.CreatedDate)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.ModifiedBy)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.ModifiedBy)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.ModifiedDate)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Active)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Active)
+            </td>
+        </tr>
+
+
+    </table>
+</div>
+
+<p class="active bg-primary text-center">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DocumentID }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-danger" })
+</p>
+

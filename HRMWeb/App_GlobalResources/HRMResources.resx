@@ -120,7 +120,25 @@
   <data name="AdminUser" xml:space="preserve">
     <value>HRMAdmin</value>
   </data>
+  <data name="EmployeeCodeDigit" xml:space="preserve">
+    <value>0000000</value>
+  </data>
+  <data name="EmployeeCodeFormate" xml:space="preserve">
+    <value>IXQ</value>
+  </data>
+  <data name="EmployeeDocumentPath" xml:space="preserve">
+    <value>~/Employees/EmployeeDocuments</value>
+  </data>
+  <data name="EmployeePicPath" xml:space="preserve">
+    <value>~/Employees/EmployeePics</value>
+  </data>
   <data name="Pwd" xml:space="preserve">
     <value>12345</value>
+  </data>
+  <data name="ShowEmployeeDocumentPath" xml:space="preserve">
+    <value>/Employees/EmployeeDocuments/</value>
+  </data>
+  <data name="ShowEmployeePicPath" xml:space="preserve">
+    <value>/Employees/EmployeePics/</value>
   </data>
 </root>

@@ -25,6 +25,8 @@ namespace HRMWeb.DataModel
             this.T_CandidateFollowUpDetails = new HashSet<T_CandidateFollowUpDetails>();
             this.T_CandidateFollowUpDetails1 = new HashSet<T_CandidateFollowUpDetails>();
             this.T_FinalCandidatePlacementDetails = new HashSet<T_FinalCandidatePlacementDetails>();
+            this.T_EmployeeLeave = new HashSet<T_EmployeeLeave>();
+            this.T_EmployeeTimeSheetTable = new HashSet<T_EmployeeTimeSheetTable>();
         }
     
         public int ID { get; set; }
@@ -53,5 +55,9 @@ namespace HRMWeb.DataModel
         public virtual ICollection<T_CandidateFollowUpDetails> T_CandidateFollowUpDetails1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_FinalCandidatePlacementDetails> T_FinalCandidatePlacementDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_EmployeeLeave> T_EmployeeLeave { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_EmployeeTimeSheetTable> T_EmployeeTimeSheetTable { get; set; }
     }
 }

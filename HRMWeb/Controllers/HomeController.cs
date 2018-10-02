@@ -42,7 +42,7 @@ namespace HRMWeb.Controllers
             if(Resources.HRMResources.AdminUser== EmployeeID && Resources.HRMResources.Pwd==Pwd)
             {
                 Session["LoginUserID"] = EmployeeID;
-                return RedirectToAction("Index", "M_EmployeeMasters",null);
+                return RedirectToAction("Dashboard", "M_EmployeeMasters",null);
             }
             else
             {
@@ -56,12 +56,17 @@ namespace HRMWeb.Controllers
                 {
                     return View();
                 }
-
-
             }
+        }
 
-
-            return View();
+        public ActionResult HRMLogOut()
+        {
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
+            Response.Cache.SetNoStore();
+            Session["LoginUserID"] = null;
+            //Session["PrName"] = null;
+            return RedirectToAction("Login");
         }
     }
 }

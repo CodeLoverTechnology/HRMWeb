@@ -37,16 +37,30 @@
                     @Html.DisplayFor(model => model.State)
                 </div>
                 <div class="control-label font-weight-bold float-left">
+                    @*@Html.DisplayNameFor(model => model.M_CommonMasterTable.FieldValue)*@ Nationality
+                </div>
+
+                <div class="form-control-detail float-left">
+                    @Html.DisplayFor(model => model.M_CommonMasterTable.FieldValue)
+                </div>
+                <div class="control-label font-weight-bold float-left">
+                    @*@Html.DisplayNameFor(model => model.M_CommonMasterTable1.FieldValue)*@Gender
+                </div>
+                <div class="form-control-detail float-left">
+                    @Html.DisplayFor(model => model.M_CommonMasterTable1.FieldValue)
+                </div>
+
+                <div class="control-label font-weight-bold float-left">
+                    @Html.DisplayNameFor(model => model.DOB)
+                </div>
+                <div class="form-control-detail float-left">
+                    @Html.DisplayFor(model => model.DOB)
+                </div>
+                <div class="control-label font-weight-bold float-left">
                     @Html.DisplayNameFor(model => model.PersonalEmailID)
                 </div>
                 <div class="form-control-detail float-left">
                     @Html.DisplayFor(model => model.PersonalEmailID)
-                </div>
-                <div class="control-label font-weight-bold float-left">
-                    @Html.DisplayNameFor(model => model.CEmailID)
-                </div>
-                <div class="form-control-detail float-left">
-                    @Html.DisplayFor(model => model.CEmailID)
                 </div>
                 <div class="control-label font-weight-bold float-left">
                     @Html.DisplayNameFor(model => model.ContactNo)
@@ -60,82 +74,39 @@
                 <div class="form-control-detail float-left">
                     @Html.DisplayFor(model => model.EmergencyContactNo)
                 </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div style="margin:auto; text-align:left;">
+                            <b>@Model.EmployeeID</b><br />
+                            <img id='img-upload' src="@(Resources.HRMResources.ShowEmployeePicPath+Model.EmployeePic)" alt="@Model.EmployeeName" class="img-thumbnail" style="width:150px;height: 110px;border-radius: 5px;" />
+                            <input type="file" id="imgInp" style="width:100%; display:none;" />
+                        </div>
+                    </div>
+                </div>
+
                 <div class="control-label font-weight-bold float-left">
-                    @Html.DisplayNameFor(model => model.DOB)
+                    @Html.DisplayNameFor(model => model.CEmailID)
                 </div>
                 <div class="form-control-detail float-left">
-                    @Html.DisplayFor(model => model.DOB)
-                </div>
+                    @Html.DisplayFor(model => model.CEmailID)
+                </div>                     
                 <div class="control-label font-weight-bold float-left">
                     @Html.DisplayNameFor(model => model.DOJ)
                 </div>
                 <div class="form-control-detail float-left">
                     @Html.DisplayFor(model => model.DOJ)
                 </div>
+
                 <div class="control-label font-weight-bold float-left">
                     @Html.DisplayNameFor(model => model.Department)
                 </div>
                 <div class="form-control-detail float-left">
                     @Html.DisplayFor(model => model.Department)
                 </div>
-                <div class="control-label font-weight-bold float-left">
-                    @Html.DisplayNameFor(model => model.CreatedBy)
-                </div>
-                <div class="form-control-detail float-left">
-                    @Html.DisplayFor(model => model.CreatedBy)
-                </div>
-                <div class="control-label font-weight-bold float-left">
-                    @Html.DisplayNameFor(model => model.CreatedDate)
-                </div>
-                <div class="form-control-detail float-left">
-                    @Html.DisplayFor(model => model.CreatedDate)
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div class="form-group">
-                    <div class="input-group">
-                        <div style="width:100%; max-width:97px; margin:auto;">
-                            <img id='img-upload' src="~/Content/Images/Logo-XenialiQ-Small.png" alt="your image" class="img-thumbnail" style="width:100%;height: 110px;border-radius: 0px;" />
-                            <input type="file" id="imgInp" style="width:100%; display:none;" />
-                        </div>
-                    </div>
-                </div>
-                <div class="control-label font-weight-bold float-left">
-                    @Html.DisplayNameFor(model => model.ModifiedBy)
-                </div>
-                <div class="form-control-detail float-left">
-                    @Html.DisplayFor(model => model.ModifiedBy)
-                </div>
-                <div class="control-label font-weight-bold float-left">
-                    @Html.DisplayNameFor(model => model.ModifiedBy)
-                </div>
-                <div class="form-control-detail float-left">
-                    @Html.DisplayFor(model => model.ModifiedBy)
-                </div>
-                <div class="control-label font-weight-bold float-left">
-                    @Html.DisplayNameFor(model => model.ModifiedDate)
-                </div>
-                <div class="form-control-detail float-left">
-                    @Html.DisplayFor(model => model.ModifiedDate)
-                </div>
-                <div class="control-label font-weight-bold float-left">
-                    @Html.DisplayNameFor(model => model.Active)
-                </div>
-                <div class="form-control-detail float-left">
-                    @Html.DisplayFor(model => model.Active)
-                </div>
-                <div class="control-label font-weight-bold float-left">
-                    @Html.DisplayNameFor(model => model.M_CommonMasterTable.FieldValue)
-                </div>
-                <div class="form-control-detail float-left">
-                    @Html.DisplayFor(model => model.M_CommonMasterTable.FieldValue)
-                </div>
-                <div class="control-label font-weight-bold float-left">
-                    @Html.DisplayNameFor(model => model.M_CommonMasterTable1.FieldValue)
-                </div>
-                <div class="form-control-detail float-left">
-                    @Html.DisplayFor(model => model.M_CommonMasterTable1.FieldValue)
-                </div>
+
+
                 <div class="control-label font-weight-bold float-left">
                     @Html.DisplayNameFor(model => model.M_DesignationMaster.Designation)
                 </div>
@@ -143,11 +114,18 @@
                     @Html.DisplayFor(model => model.M_DesignationMaster.Designation)
                 </div>
                 <div class="control-label font-weight-bold float-left">
-                    @Html.DisplayNameFor(model => model.M_EmployeeMasters2.EmployeeName)
+                    @*@Html.DisplayNameFor(model => model.M_EmployeeMasters2.EmployeeName)*@ Manager Name
                 </div>
                 <div class="form-control-detail float-left">
                     @Html.DisplayFor(model => model.M_EmployeeMasters2.EmployeeName)
                 </div>
+                <div class="control-label font-weight-bold float-left">
+                    @Html.DisplayNameFor(model => model.Active)
+                </div>
+                <div class="form-control-detail float-left">
+                    @Html.DisplayFor(model => model.Active)
+                </div>
+
             </div>
         </div>
         <p class="text-right">

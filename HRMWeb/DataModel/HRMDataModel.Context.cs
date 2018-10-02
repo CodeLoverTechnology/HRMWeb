@@ -38,5 +38,10 @@ namespace HRMWeb.DataModel
         public virtual DbSet<T_CandidateFollowUpDetails> T_CandidateFollowUpDetails { get; set; }
         public virtual DbSet<T_FinalCandidatePlacementDetails> T_FinalCandidatePlacementDetails { get; set; }
         public virtual DbSet<M_NavigationMaster> M_NavigationMaster { get; set; }
+        public virtual DbSet<M_ProjectMaster> M_ProjectMaster { get; set; }
+        public virtual DbSet<T_EmployeeAttendance> T_EmployeeAttendance { get; set; }
+        public virtual DbSet<T_EmployeeLeave> T_EmployeeLeave { get; set; }
+        public virtual DbSet<T_EmployeeTimeSheetTable> T_EmployeeTimeSheetTable { get; set; }
+        public virtual DbSet<T_EmployeeDocument> T_EmployeeDocument { get; set; }
     }
 }

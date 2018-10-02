@@ -1,0 +1,131 @@
+﻿@model HRMWeb.DataModel.T_EmployeeLeave
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>T_EmployeeLeave</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LeaveReason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeaveReason)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeaveFromDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeaveFromDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeaveToDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeaveToDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfLeave)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfLeave)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComponsetReason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ComponsetReason)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeaveFileAttachment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeaveFileAttachment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.M_CommonMasterTable.FieldValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.M_CommonMasterTable.FieldValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.M_EmployeeMasters.EmployeeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.M_EmployeeMasters.EmployeeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.M_EmployeeMasters1.EmployeeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.M_EmployeeMasters1.EmployeeName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LeaveID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -240,6 +240,88 @@
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="M_ProjectMaster">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="ProjectCode" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="ProjectName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ProjectLocation" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_EmployeeAttendance">
+          <Key>
+            <PropertyRef Name="AttendanceID" />
+          </Key>
+          <Property Name="AttendanceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="InTime" Type="datetime" Nullable="false" />
+          <Property Name="OutTime" Type="datetime" />
+          <Property Name="Reason" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_EmployeeDocument">
+          <Key>
+            <PropertyRef Name="DocumentID" />
+          </Key>
+          <Property Name="DocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ReferenceDoc" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FileDescription" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_EmployeeLeave">
+          <Key>
+            <PropertyRef Name="LeaveID" />
+          </Key>
+          <Property Name="LeaveID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LeaveReason" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LeaveFromDate" Type="datetime" Nullable="false" />
+          <Property Name="LeaveToDate" Type="datetime" Nullable="false" />
+          <Property Name="NoOfLeave" Type="float" Nullable="false" />
+          <Property Name="TypeOfLeaveID" Type="int" Nullable="false" />
+          <Property Name="ApproverManagerID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ComponsetReason" Type="nvarchar(max)" />
+          <Property Name="LeaveFileAttachment" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_EmployeeTimeSheetTable">
+          <Key>
+            <PropertyRef Name="TimeSheetID" />
+          </Key>
+          <Property Name="TimeSheetID" Type="int" Nullable="false" />
+          <Property Name="EmployeeID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="TypeOfWorkID" Type="int" />
+          <Property Name="WorkDate" Type="datetime" Nullable="false" />
+          <Property Name="WorkingHours" Type="int" Nullable="false" />
+          <Property Name="WorkDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
         <Association Name="FK_M_CandidateMaters_M_CommonMasterTable">
           <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="0..1" />
           <End Role="M_CandidateMasters" Type="Self.M_CandidateMasters" Multiplicity="*" />
@@ -372,6 +454,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_M_ProjectMaster_M_CompanyMasters">
+          <End Role="M_CompanyMasters" Type="Self.M_CompanyMasters" Multiplicity="1" />
+          <End Role="M_ProjectMaster" Type="Self.M_ProjectMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CompanyMasters">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="M_ProjectMaster">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_M_RequirementMaster_M_CommonMasterTable">
           <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="1" />
           <End Role="M_RequirementMaster" Type="Self.M_RequirementMaster" Multiplicity="*" />
@@ -456,6 +550,102 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_T_EmployeeAttendance_M_EmployeeMasters">
+          <End Role="M_EmployeeMasters" Type="Self.M_EmployeeMasters" Multiplicity="1" />
+          <End Role="T_EmployeeAttendance" Type="Self.T_EmployeeAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_EmployeeMasters">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="T_EmployeeAttendance">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_EmployeeDocument_M_EmployeeMasters">
+          <End Role="M_EmployeeMasters" Type="Self.M_EmployeeMasters" Multiplicity="1" />
+          <End Role="T_EmployeeDocument" Type="Self.T_EmployeeDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_EmployeeMasters">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="T_EmployeeDocument">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_EmployeeLeave_M_CommonMasterTable">
+          <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="1" />
+          <End Role="T_EmployeeLeave" Type="Self.T_EmployeeLeave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_EmployeeLeave">
+              <PropertyRef Name="TypeOfLeaveID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_EmployeeLeave_M_EmployeeMasters">
+          <End Role="M_EmployeeMasters" Type="Self.M_EmployeeMasters" Multiplicity="1" />
+          <End Role="T_EmployeeLeave" Type="Self.T_EmployeeLeave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_EmployeeMasters">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="T_EmployeeLeave">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_EmployeeLeave_M_EmployeeMasters1">
+          <End Role="M_EmployeeMasters" Type="Self.M_EmployeeMasters" Multiplicity="1" />
+          <End Role="T_EmployeeLeave" Type="Self.T_EmployeeLeave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_EmployeeMasters">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="T_EmployeeLeave">
+              <PropertyRef Name="ApproverManagerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_EmployeeTimeSheetTable_M_CommonMasterTable">
+          <End Role="M_CommonMasterTable" Type="Self.M_CommonMasterTable" Multiplicity="0..1" />
+          <End Role="T_EmployeeTimeSheetTable" Type="Self.T_EmployeeTimeSheetTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_EmployeeTimeSheetTable">
+              <PropertyRef Name="TypeOfWorkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_EmployeeTimeSheetTable_M_EmployeeMasters">
+          <End Role="M_EmployeeMasters" Type="Self.M_EmployeeMasters" Multiplicity="1" />
+          <End Role="T_EmployeeTimeSheetTable" Type="Self.T_EmployeeTimeSheetTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_EmployeeMasters">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="T_EmployeeTimeSheetTable">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_EmployeeTimeSheetTable_M_ProjectMaster">
+          <End Role="M_ProjectMaster" Type="Self.M_ProjectMaster" Multiplicity="1" />
+          <End Role="T_EmployeeTimeSheetTable" Type="Self.T_EmployeeTimeSheetTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_ProjectMaster">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="T_EmployeeTimeSheetTable">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_T_FinalCandidatePlacementDetails_M_CandidateMasters">
           <End Role="M_CandidateMasters" Type="Self.M_CandidateMasters" Multiplicity="1" />
           <End Role="T_FinalCandidatePlacementDetails" Type="Self.T_FinalCandidatePlacementDetails" Multiplicity="*" />
@@ -506,6 +696,11 @@
           <EntitySet Name="M_RoleMaster" EntityType="Self.M_RoleMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_CandidateFollowUpDetails" EntityType="Self.T_CandidateFollowUpDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_FinalCandidatePlacementDetails" EntityType="Self.T_FinalCandidatePlacementDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_ProjectMaster" EntityType="Self.M_ProjectMaster" Schema="HRMAdmin" store:Type="Tables" />
+          <EntitySet Name="T_EmployeeAttendance" EntityType="Self.T_EmployeeAttendance" Schema="HRMAdmin" store:Type="Tables" />
+          <EntitySet Name="T_EmployeeDocument" EntityType="Self.T_EmployeeDocument" Schema="HRMAdmin" store:Type="Tables" />
+          <EntitySet Name="T_EmployeeLeave" EntityType="Self.T_EmployeeLeave" Schema="HRMAdmin" store:Type="Tables" />
+          <EntitySet Name="T_EmployeeTimeSheetTable" EntityType="Self.T_EmployeeTimeSheetTable" Schema="HRMAdmin" store:Type="Tables" />
           <AssociationSet Name="FK_M_CandidateMaters_M_CommonMasterTable" Association="Self.FK_M_CandidateMaters_M_CommonMasterTable">
             <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
             <End Role="M_CandidateMasters" EntitySet="M_CandidateMasters" />
@@ -550,6 +745,10 @@
             <End Role="M_NavigationMaster" EntitySet="M_NavigationMaster" />
             <End Role="M_NavigationMaster1" EntitySet="M_NavigationMaster" />
           </AssociationSet>
+          <AssociationSet Name="FK_M_ProjectMaster_M_CompanyMasters" Association="Self.FK_M_ProjectMaster_M_CompanyMasters">
+            <End Role="M_CompanyMasters" EntitySet="M_CompanyMasters" />
+            <End Role="M_ProjectMaster" EntitySet="M_ProjectMaster" />
+          </AssociationSet>
           <AssociationSet Name="FK_M_RequirementMaster_M_CommonMasterTable" Association="Self.FK_M_RequirementMaster_M_CommonMasterTable">
             <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
             <End Role="M_RequirementMaster" EntitySet="M_RequirementMaster" />
@@ -577,6 +776,38 @@
           <AssociationSet Name="FK_T_CandidateFollowUpDetails_M_CompanyMasters" Association="Self.FK_T_CandidateFollowUpDetails_M_CompanyMasters">
             <End Role="M_CompanyMasters" EntitySet="M_CompanyMasters" />
             <End Role="T_CandidateFollowUpDetails" EntitySet="T_CandidateFollowUpDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_EmployeeAttendance_M_EmployeeMasters" Association="Self.FK_T_EmployeeAttendance_M_EmployeeMasters">
+            <End Role="M_EmployeeMasters" EntitySet="M_EmployeeMasters" />
+            <End Role="T_EmployeeAttendance" EntitySet="T_EmployeeAttendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_EmployeeDocument_M_EmployeeMasters" Association="Self.FK_T_EmployeeDocument_M_EmployeeMasters">
+            <End Role="M_EmployeeMasters" EntitySet="M_EmployeeMasters" />
+            <End Role="T_EmployeeDocument" EntitySet="T_EmployeeDocument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_EmployeeLeave_M_CommonMasterTable" Association="Self.FK_T_EmployeeLeave_M_CommonMasterTable">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="T_EmployeeLeave" EntitySet="T_EmployeeLeave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_EmployeeLeave_M_EmployeeMasters" Association="Self.FK_T_EmployeeLeave_M_EmployeeMasters">
+            <End Role="M_EmployeeMasters" EntitySet="M_EmployeeMasters" />
+            <End Role="T_EmployeeLeave" EntitySet="T_EmployeeLeave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_EmployeeLeave_M_EmployeeMasters1" Association="Self.FK_T_EmployeeLeave_M_EmployeeMasters1">
+            <End Role="M_EmployeeMasters" EntitySet="M_EmployeeMasters" />
+            <End Role="T_EmployeeLeave" EntitySet="T_EmployeeLeave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_EmployeeTimeSheetTable_M_CommonMasterTable" Association="Self.FK_T_EmployeeTimeSheetTable_M_CommonMasterTable">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="T_EmployeeTimeSheetTable" EntitySet="T_EmployeeTimeSheetTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_EmployeeTimeSheetTable_M_EmployeeMasters" Association="Self.FK_T_EmployeeTimeSheetTable_M_EmployeeMasters">
+            <End Role="M_EmployeeMasters" EntitySet="M_EmployeeMasters" />
+            <End Role="T_EmployeeTimeSheetTable" EntitySet="T_EmployeeTimeSheetTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_EmployeeTimeSheetTable_M_ProjectMaster" Association="Self.FK_T_EmployeeTimeSheetTable_M_ProjectMaster">
+            <End Role="M_ProjectMaster" EntitySet="M_ProjectMaster" />
+            <End Role="T_EmployeeTimeSheetTable" EntitySet="T_EmployeeTimeSheetTable" />
           </AssociationSet>
           <AssociationSet Name="FK_T_FinalCandidatePlacementDetails_M_CandidateMasters" Association="Self.FK_T_FinalCandidatePlacementDetails_M_CandidateMasters">
             <End Role="M_CandidateMasters" EntitySet="M_CandidateMasters" />
@@ -648,6 +879,8 @@
           <NavigationProperty Name="T_CandidateFollowUpDetails" Relationship="Self.FK_T_CandidateFollowUpDetails_M_CommonMasterTable" FromRole="M_CommonMasterTable" ToRole="T_CandidateFollowUpDetails" />
           <NavigationProperty Name="T_CandidateFollowUpDetails1" Relationship="Self.FK_T_CandidateFollowUpDetails_M_CommonMasterTable1" FromRole="M_CommonMasterTable" ToRole="T_CandidateFollowUpDetails" />
           <NavigationProperty Name="T_FinalCandidatePlacementDetails" Relationship="Self.FK_T_FinalCandidatePlacementDetails_M_CommonMasterTable" FromRole="M_CommonMasterTable" ToRole="T_FinalCandidatePlacementDetails" />
+          <NavigationProperty Name="T_EmployeeLeave" Relationship="HRM_DBModel.FK_T_EmployeeLeave_M_CommonMasterTable" FromRole="M_CommonMasterTable" ToRole="T_EmployeeLeave" />
+          <NavigationProperty Name="T_EmployeeTimeSheetTable" Relationship="HRM_DBModel.FK_T_EmployeeTimeSheetTable_M_CommonMasterTable" FromRole="M_CommonMasterTable" ToRole="T_EmployeeTimeSheetTable" />
         </EntityType>
         <EntityType Name="M_CompanyMasters">
           <Key>
@@ -672,6 +905,7 @@
           <NavigationProperty Name="M_RequirementMaster" Relationship="Self.FK_M_RequirementMaster_M_CompanyMasters" FromRole="M_CompanyMasters" ToRole="M_RequirementMaster" />
           <NavigationProperty Name="T_CandidateFollowUpDetails" Relationship="Self.FK_T_CandidateFollowUpDetails_M_CompanyMasters" FromRole="M_CompanyMasters" ToRole="T_CandidateFollowUpDetails" />
           <NavigationProperty Name="T_FinalCandidatePlacementDetails" Relationship="Self.FK_T_FinalCandidatePlacementDetails_M_CompanyMasters" FromRole="M_CompanyMasters" ToRole="T_FinalCandidatePlacementDetails" />
+          <NavigationProperty Name="M_ProjectMaster" Relationship="HRM_DBModel.FK_M_ProjectMaster_M_CompanyMasters" FromRole="M_CompanyMasters" ToRole="M_ProjectMaster" />
         </EntityType>
         <EntityType Name="M_DesignationMaster">
           <Key>
@@ -720,6 +954,11 @@
           <NavigationProperty Name="M_EmployeeMasters2" Relationship="Self.FK_M_EmployeeMasters_M_EmployeeMasters" FromRole="M_EmployeeMasters1" ToRole="M_EmployeeMasters" />
           <Property Name="EmployeePic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Pwd" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_EmployeeAttendance" Relationship="HRM_DBModel.FK_T_EmployeeAttendance_M_EmployeeMasters" FromRole="M_EmployeeMasters" ToRole="T_EmployeeAttendance" />
+          <NavigationProperty Name="T_EmployeeLeave" Relationship="HRM_DBModel.FK_T_EmployeeLeave_M_EmployeeMasters" FromRole="M_EmployeeMasters" ToRole="T_EmployeeLeave" />
+          <NavigationProperty Name="T_EmployeeLeave1" Relationship="HRM_DBModel.FK_T_EmployeeLeave_M_EmployeeMasters1" FromRole="M_EmployeeMasters" ToRole="T_EmployeeLeave" />
+          <NavigationProperty Name="T_EmployeeTimeSheetTable" Relationship="HRM_DBModel.FK_T_EmployeeTimeSheetTable_M_EmployeeMasters" FromRole="M_EmployeeMasters" ToRole="T_EmployeeTimeSheetTable" />
+          <NavigationProperty Name="T_EmployeeDocument" Relationship="HRM_DBModel.FK_T_EmployeeDocument_M_EmployeeMasters" FromRole="M_EmployeeMasters" ToRole="T_EmployeeDocument" />
         </EntityType>
         <EntityType Name="M_FunctionAreaMaster">
           <Key>
@@ -1193,6 +1432,47 @@
             <End Role="M_NavigationMaster" EntitySet="M_NavigationMaster" />
             <End Role="M_NavigationMaster1" EntitySet="M_NavigationMaster" />
           </AssociationSet>
+          <EntitySet Name="M_ProjectMaster" EntityType="HRM_DBModel.M_ProjectMaster" />
+          <EntitySet Name="T_EmployeeAttendance" EntityType="HRM_DBModel.T_EmployeeAttendance" />
+          <EntitySet Name="T_EmployeeLeave" EntityType="HRM_DBModel.T_EmployeeLeave" />
+          <EntitySet Name="T_EmployeeTimeSheetTable" EntityType="HRM_DBModel.T_EmployeeTimeSheetTable" />
+          <AssociationSet Name="FK_T_EmployeeLeave_M_CommonMasterTable" Association="HRM_DBModel.FK_T_EmployeeLeave_M_CommonMasterTable">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="T_EmployeeLeave" EntitySet="T_EmployeeLeave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_EmployeeTimeSheetTable_M_CommonMasterTable" Association="HRM_DBModel.FK_T_EmployeeTimeSheetTable_M_CommonMasterTable">
+            <End Role="M_CommonMasterTable" EntitySet="M_CommonMasterTable" />
+            <End Role="T_EmployeeTimeSheetTable" EntitySet="T_EmployeeTimeSheetTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_ProjectMaster_M_CompanyMasters" Association="HRM_DBModel.FK_M_ProjectMaster_M_CompanyMasters">
+            <End Role="M_CompanyMasters" EntitySet="M_CompanyMasters" />
+            <End Role="M_ProjectMaster" EntitySet="M_ProjectMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_EmployeeAttendance_M_EmployeeMasters" Association="HRM_DBModel.FK_T_EmployeeAttendance_M_EmployeeMasters">
+            <End Role="M_EmployeeMasters" EntitySet="M_EmployeeMasters" />
+            <End Role="T_EmployeeAttendance" EntitySet="T_EmployeeAttendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_EmployeeLeave_M_EmployeeMasters" Association="HRM_DBModel.FK_T_EmployeeLeave_M_EmployeeMasters">
+            <End Role="M_EmployeeMasters" EntitySet="M_EmployeeMasters" />
+            <End Role="T_EmployeeLeave" EntitySet="T_EmployeeLeave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_EmployeeLeave_M_EmployeeMasters1" Association="HRM_DBModel.FK_T_EmployeeLeave_M_EmployeeMasters1">
+            <End Role="M_EmployeeMasters" EntitySet="M_EmployeeMasters" />
+            <End Role="T_EmployeeLeave" EntitySet="T_EmployeeLeave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_EmployeeTimeSheetTable_M_EmployeeMasters" Association="HRM_DBModel.FK_T_EmployeeTimeSheetTable_M_EmployeeMasters">
+            <End Role="M_EmployeeMasters" EntitySet="M_EmployeeMasters" />
+            <End Role="T_EmployeeTimeSheetTable" EntitySet="T_EmployeeTimeSheetTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_EmployeeTimeSheetTable_M_ProjectMaster" Association="HRM_DBModel.FK_T_EmployeeTimeSheetTable_M_ProjectMaster">
+            <End Role="M_ProjectMaster" EntitySet="M_ProjectMaster" />
+            <End Role="T_EmployeeTimeSheetTable" EntitySet="T_EmployeeTimeSheetTable" />
+          </AssociationSet>
+          <EntitySet Name="T_EmployeeDocument" EntityType="HRM_DBModel.T_EmployeeDocument" />
+          <AssociationSet Name="FK_T_EmployeeDocument_M_EmployeeMasters" Association="HRM_DBModel.FK_T_EmployeeDocument_M_EmployeeMasters">
+            <End Role="M_EmployeeMasters" EntitySet="M_EmployeeMasters" />
+            <End Role="T_EmployeeDocument" EntitySet="T_EmployeeDocument" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="M_NavigationMaster">
           <Key>
@@ -1220,6 +1500,206 @@
             </Principal>
             <Dependent Role="M_NavigationMaster1">
               <PropertyRef Name="ParantMenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="M_ProjectMaster">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="ProjectCode" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="ProjectName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectLocation" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_CompanyMasters" Relationship="HRM_DBModel.FK_M_ProjectMaster_M_CompanyMasters" FromRole="M_ProjectMaster" ToRole="M_CompanyMasters" />
+          <NavigationProperty Name="T_EmployeeTimeSheetTable" Relationship="HRM_DBModel.FK_T_EmployeeTimeSheetTable_M_ProjectMaster" FromRole="M_ProjectMaster" ToRole="T_EmployeeTimeSheetTable" />
+        </EntityType>
+        <EntityType Name="T_EmployeeAttendance">
+          <Key>
+            <PropertyRef Name="AttendanceID" />
+          </Key>
+          <Property Name="AttendanceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="InTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OutTime" Type="DateTime" Precision="3" />
+          <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_EmployeeMasters" Relationship="HRM_DBModel.FK_T_EmployeeAttendance_M_EmployeeMasters" FromRole="T_EmployeeAttendance" ToRole="M_EmployeeMasters" />
+        </EntityType>
+        <EntityType Name="T_EmployeeLeave">
+          <Key>
+            <PropertyRef Name="LeaveID" />
+          </Key>
+          <Property Name="LeaveID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LeaveReason" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LeaveFromDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LeaveToDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NoOfLeave" Type="Double" Nullable="false" />
+          <Property Name="TypeOfLeaveID" Type="Int32" Nullable="false" />
+          <Property Name="ApproverManagerID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ComponsetReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LeaveFileAttachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_CommonMasterTable" Relationship="HRM_DBModel.FK_T_EmployeeLeave_M_CommonMasterTable" FromRole="T_EmployeeLeave" ToRole="M_CommonMasterTable" />
+          <NavigationProperty Name="M_EmployeeMasters" Relationship="HRM_DBModel.FK_T_EmployeeLeave_M_EmployeeMasters" FromRole="T_EmployeeLeave" ToRole="M_EmployeeMasters" />
+          <NavigationProperty Name="M_EmployeeMasters1" Relationship="HRM_DBModel.FK_T_EmployeeLeave_M_EmployeeMasters1" FromRole="T_EmployeeLeave" ToRole="M_EmployeeMasters" />
+        </EntityType>
+        <EntityType Name="T_EmployeeTimeSheetTable">
+          <Key>
+            <PropertyRef Name="TimeSheetID" />
+          </Key>
+          <Property Name="TimeSheetID" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="TypeOfWorkID" Type="Int32" />
+          <Property Name="WorkDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WorkingHours" Type="Int32" Nullable="false" />
+          <Property Name="WorkDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+          <NavigationProperty Name="M_CommonMasterTable" Relationship="HRM_DBModel.FK_T_EmployeeTimeSheetTable_M_CommonMasterTable" FromRole="T_EmployeeTimeSheetTable" ToRole="M_CommonMasterTable" />
+          <NavigationProperty Name="M_EmployeeMasters" Relationship="HRM_DBModel.FK_T_EmployeeTimeSheetTable_M_EmployeeMasters" FromRole="T_EmployeeTimeSheetTable" ToRole="M_EmployeeMasters" />
+          <NavigationProperty Name="M_ProjectMaster" Relationship="HRM_DBModel.FK_T_EmployeeTimeSheetTable_M_ProjectMaster" FromRole="T_EmployeeTimeSheetTable" ToRole="M_ProjectMaster" />
+        </EntityType>
+        <Association Name="FK_T_EmployeeLeave_M_CommonMasterTable">
+          <End Type="HRM_DBModel.M_CommonMasterTable" Role="M_CommonMasterTable" Multiplicity="1" />
+          <End Type="HRM_DBModel.T_EmployeeLeave" Role="T_EmployeeLeave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_EmployeeLeave">
+              <PropertyRef Name="TypeOfLeaveID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_EmployeeTimeSheetTable_M_CommonMasterTable">
+          <End Type="HRM_DBModel.M_CommonMasterTable" Role="M_CommonMasterTable" Multiplicity="0..1" />
+          <End Type="HRM_DBModel.T_EmployeeTimeSheetTable" Role="T_EmployeeTimeSheetTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CommonMasterTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_EmployeeTimeSheetTable">
+              <PropertyRef Name="TypeOfWorkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_ProjectMaster_M_CompanyMasters">
+          <End Type="HRM_DBModel.M_CompanyMasters" Role="M_CompanyMasters" Multiplicity="1" />
+          <End Type="HRM_DBModel.M_ProjectMaster" Role="M_ProjectMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CompanyMasters">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="M_ProjectMaster">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_EmployeeAttendance_M_EmployeeMasters">
+          <End Type="HRM_DBModel.M_EmployeeMasters" Role="M_EmployeeMasters" Multiplicity="1" />
+          <End Type="HRM_DBModel.T_EmployeeAttendance" Role="T_EmployeeAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_EmployeeMasters">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="T_EmployeeAttendance">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_EmployeeLeave_M_EmployeeMasters">
+          <End Type="HRM_DBModel.M_EmployeeMasters" Role="M_EmployeeMasters" Multiplicity="1" />
+          <End Type="HRM_DBModel.T_EmployeeLeave" Role="T_EmployeeLeave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_EmployeeMasters">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="T_EmployeeLeave">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_EmployeeLeave_M_EmployeeMasters1">
+          <End Type="HRM_DBModel.M_EmployeeMasters" Role="M_EmployeeMasters" Multiplicity="1" />
+          <End Type="HRM_DBModel.T_EmployeeLeave" Role="T_EmployeeLeave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_EmployeeMasters">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="T_EmployeeLeave">
+              <PropertyRef Name="ApproverManagerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_EmployeeTimeSheetTable_M_EmployeeMasters">
+          <End Type="HRM_DBModel.M_EmployeeMasters" Role="M_EmployeeMasters" Multiplicity="1" />
+          <End Type="HRM_DBModel.T_EmployeeTimeSheetTable" Role="T_EmployeeTimeSheetTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_EmployeeMasters">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="T_EmployeeTimeSheetTable">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_EmployeeTimeSheetTable_M_ProjectMaster">
+          <End Type="HRM_DBModel.M_ProjectMaster" Role="M_ProjectMaster" Multiplicity="1" />
+          <End Type="HRM_DBModel.T_EmployeeTimeSheetTable" Role="T_EmployeeTimeSheetTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_ProjectMaster">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="T_EmployeeTimeSheetTable">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="T_EmployeeDocument">
+          <Key>
+            <PropertyRef Name="DocumentID" />
+          </Key>
+          <Property Name="DocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ReferenceDoc" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_EmployeeMasters" Relationship="HRM_DBModel.FK_T_EmployeeDocument_M_EmployeeMasters" FromRole="T_EmployeeDocument" ToRole="M_EmployeeMasters" />
+        </EntityType>
+        <Association Name="FK_T_EmployeeDocument_M_EmployeeMasters">
+          <End Type="HRM_DBModel.M_EmployeeMasters" Role="M_EmployeeMasters" Multiplicity="1" />
+          <End Type="HRM_DBModel.T_EmployeeDocument" Role="T_EmployeeDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_EmployeeMasters">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="T_EmployeeDocument">
+              <PropertyRef Name="EmployeeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1474,6 +1954,93 @@
                 <ScalarProperty Name="MenuLink" ColumnName="MenuLink" />
                 <ScalarProperty Name="MenuName" ColumnName="MenuName" />
                 <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_ProjectMaster">
+            <EntityTypeMapping TypeName="HRM_DBModel.M_ProjectMaster">
+              <MappingFragment StoreEntitySet="M_ProjectMaster">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ProjectLocation" ColumnName="ProjectLocation" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_EmployeeAttendance">
+            <EntityTypeMapping TypeName="HRM_DBModel.T_EmployeeAttendance">
+              <MappingFragment StoreEntitySet="T_EmployeeAttendance">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="OutTime" ColumnName="OutTime" />
+                <ScalarProperty Name="InTime" ColumnName="InTime" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="AttendanceID" ColumnName="AttendanceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_EmployeeLeave">
+            <EntityTypeMapping TypeName="HRM_DBModel.T_EmployeeLeave">
+              <MappingFragment StoreEntitySet="T_EmployeeLeave">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="LeaveFileAttachment" ColumnName="LeaveFileAttachment" />
+                <ScalarProperty Name="ComponsetReason" ColumnName="ComponsetReason" />
+                <ScalarProperty Name="ApproverManagerID" ColumnName="ApproverManagerID" />
+                <ScalarProperty Name="TypeOfLeaveID" ColumnName="TypeOfLeaveID" />
+                <ScalarProperty Name="NoOfLeave" ColumnName="NoOfLeave" />
+                <ScalarProperty Name="LeaveToDate" ColumnName="LeaveToDate" />
+                <ScalarProperty Name="LeaveFromDate" ColumnName="LeaveFromDate" />
+                <ScalarProperty Name="LeaveReason" ColumnName="LeaveReason" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="LeaveID" ColumnName="LeaveID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_EmployeeTimeSheetTable">
+            <EntityTypeMapping TypeName="HRM_DBModel.T_EmployeeTimeSheetTable">
+              <MappingFragment StoreEntitySet="T_EmployeeTimeSheetTable">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="WorkDescription" ColumnName="WorkDescription" />
+                <ScalarProperty Name="WorkingHours" ColumnName="WorkingHours" />
+                <ScalarProperty Name="WorkDate" ColumnName="WorkDate" />
+                <ScalarProperty Name="TypeOfWorkID" ColumnName="TypeOfWorkID" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="TimeSheetID" ColumnName="TimeSheetID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_EmployeeDocument">
+            <EntityTypeMapping TypeName="HRM_DBModel.T_EmployeeDocument">
+              <MappingFragment StoreEntitySet="T_EmployeeDocument">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="FileDescription" ColumnName="FileDescription" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="ReferenceDoc" ColumnName="ReferenceDoc" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

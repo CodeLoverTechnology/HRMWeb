@@ -39,6 +39,20 @@
         <AssociationConnector Association="HRM_DBModel.FK_M_RequirementMaster_M_LocationMasters" ManuallyRouted="false" />
         <EntityTypeShape EntityType="HRM_DBModel.M_NavigationMaster" Width="1.5" PointX="3.375" PointY="4.75" />
         <AssociationConnector Association="HRM_DBModel.FK_M_NavigationMaster_M_NavigationMaster" />
+        <EntityTypeShape EntityType="HRM_DBModel.M_ProjectMaster" Width="1.5" PointX="7.5" PointY="25.25" />
+        <EntityTypeShape EntityType="HRM_DBModel.T_EmployeeAttendance" Width="1.5" PointX="5.25" PointY="14.375" />
+        <EntityTypeShape EntityType="HRM_DBModel.T_EmployeeLeave" Width="1.5" PointX="6.25" PointY="8.5" />
+        <EntityTypeShape EntityType="HRM_DBModel.T_EmployeeTimeSheetTable" Width="1.5" PointX="12.75" PointY="12.375" />
+        <AssociationConnector Association="HRM_DBModel.FK_T_EmployeeLeave_M_CommonMasterTable" />
+        <AssociationConnector Association="HRM_DBModel.FK_T_EmployeeTimeSheetTable_M_CommonMasterTable" />
+        <AssociationConnector Association="HRM_DBModel.FK_M_ProjectMaster_M_CompanyMasters" />
+        <AssociationConnector Association="HRM_DBModel.FK_T_EmployeeAttendance_M_EmployeeMasters" />
+        <AssociationConnector Association="HRM_DBModel.FK_T_EmployeeLeave_M_EmployeeMasters" />
+        <AssociationConnector Association="HRM_DBModel.FK_T_EmployeeLeave_M_EmployeeMasters1" />
+        <AssociationConnector Association="HRM_DBModel.FK_T_EmployeeTimeSheetTable_M_EmployeeMasters" />
+        <AssociationConnector Association="HRM_DBModel.FK_T_EmployeeTimeSheetTable_M_ProjectMaster" />
+        <EntityTypeShape EntityType="HRM_DBModel.T_EmployeeDocument" Width="1.5" PointX="5.25" PointY="0.75" />
+        <AssociationConnector Association="HRM_DBModel.FK_T_EmployeeDocument_M_EmployeeMasters" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

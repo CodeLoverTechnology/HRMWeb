@@ -70,11 +70,65 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 0000000.
+        /// </summary>
+        internal static string EmployeeCodeDigit {
+            get {
+                return ResourceManager.GetString("EmployeeCodeDigit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IXQ.
+        /// </summary>
+        internal static string EmployeeCodeFormate {
+            get {
+                return ResourceManager.GetString("EmployeeCodeFormate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~/Employees/EmployeeDocuments.
+        /// </summary>
+        internal static string EmployeeDocumentPath {
+            get {
+                return ResourceManager.GetString("EmployeeDocumentPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~/Employees/EmployeePics.
+        /// </summary>
+        internal static string EmployeePicPath {
+            get {
+                return ResourceManager.GetString("EmployeePicPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 12345.
         /// </summary>
         internal static string Pwd {
             get {
                 return ResourceManager.GetString("Pwd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Employees/EmployeeDocuments/.
+        /// </summary>
+        internal static string ShowEmployeeDocumentPath {
+            get {
+                return ResourceManager.GetString("ShowEmployeeDocumentPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Employees/EmployeePics/.
+        /// </summary>
+        internal static string ShowEmployeePicPath {
+            get {
+                return ResourceManager.GetString("ShowEmployeePicPath", resourceCulture);
             }
         }
     }

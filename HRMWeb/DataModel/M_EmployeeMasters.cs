@@ -18,6 +18,11 @@ namespace HRMWeb.DataModel
         public M_EmployeeMasters()
         {
             this.M_EmployeeMasters1 = new HashSet<M_EmployeeMasters>();
+            this.T_EmployeeAttendance = new HashSet<T_EmployeeAttendance>();
+            this.T_EmployeeLeave = new HashSet<T_EmployeeLeave>();
+            this.T_EmployeeLeave1 = new HashSet<T_EmployeeLeave>();
+            this.T_EmployeeTimeSheetTable = new HashSet<T_EmployeeTimeSheetTable>();
+            this.T_EmployeeDocument = new HashSet<T_EmployeeDocument>();
         }
     
         public string EmployeeID { get; set; }
@@ -50,5 +55,15 @@ namespace HRMWeb.DataModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<M_EmployeeMasters> M_EmployeeMasters1 { get; set; }
         public virtual M_EmployeeMasters M_EmployeeMasters2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_EmployeeAttendance> T_EmployeeAttendance { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_EmployeeLeave> T_EmployeeLeave { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_EmployeeLeave> T_EmployeeLeave1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_EmployeeTimeSheetTable> T_EmployeeTimeSheetTable { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_EmployeeDocument> T_EmployeeDocument { get; set; }
     }
 }

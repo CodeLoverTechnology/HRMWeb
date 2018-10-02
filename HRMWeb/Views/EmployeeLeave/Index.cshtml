@@ -1,0 +1,98 @@
+﻿@model IEnumerable<HRMWeb.DataModel.T_EmployeeLeave>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="border shadow pb-4">
+    <div class="btn-primary">
+        <div class="h2 text-left">
+            Employee Leave
+            <div class="text-right" style="padding-right:5px;float:right;">
+                <a href="~/EmployeeLeave/Create" class="btn btn-success">Add New Leave</a>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12 col-sm-12 mb-12">
+                <div class="mt-2" style="width:100%; overflow:auto;">
+                    <table class="table table-striped table-responsive table-bordered text-center d-table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.M_EmployeeMasters.EmployeeName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LeaveReason)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LeaveFromDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LeaveToDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NoOfLeave)
+                            </th>
+                            @*<th>
+                                @Html.DisplayNameFor(model => model.ComponsetReason)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LeaveFileAttachment)
+                            </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.M_CommonMasterTable.FieldValue)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.M_EmployeeMasters1.EmployeeName)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.M_EmployeeMasters.EmployeeName)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LeaveReason)
+                                </td>
+                                <td>
+                                    @item.LeaveFromDate.ToString("dd-MMM-yyyy")
+                                </td>
+                                <td>
+                                    @item.LeaveToDate.ToString("dd-MMM-yyyy")
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NoOfLeave)
+                                </td>
+                                @*<td>
+                                    @Html.DisplayFor(modelItem => item.ComponsetReason)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LeaveFileAttachment)
+                                </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.M_CommonMasterTable.FieldValue)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.M_EmployeeMasters1.EmployeeName)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.LeaveID }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.LeaveID }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.LeaveID })
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

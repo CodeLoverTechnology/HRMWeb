@@ -1,0 +1,83 @@
+﻿@model IEnumerable<HRMWeb.DataModel.M_CompanyMasters>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactPerson)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyContactNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Locality)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.M_LocationMasters.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactPerson)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyContactNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Locality)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.M_LocationMasters.State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.CompanyID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.CompanyID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CompanyID })
+        </td>
+    </tr>
+}
+
+</table>

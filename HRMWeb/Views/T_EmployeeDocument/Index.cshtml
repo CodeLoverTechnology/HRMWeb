@@ -1,0 +1,81 @@
+﻿@model IEnumerable<HRMWeb.DataModel.T_EmployeeDocument>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="border shadow pb-4">
+    <div class="btn-primary">
+        <div class="h2 text-left">
+            Employee Document List
+            <div class="text-right" style="padding-right:5px;float:right;">
+                <a href="~/T_EmployeeDocument/Create" class="btn btn-success">Add New Employee Documents</a>
+                <a href="~/M_EmployeeMasters/Create" class="btn btn-success">Employee List</a>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12 col-sm-12 mb-12">
+                <div class="mt-2" style="width:100%; overflow:auto;">
+                    <table class="table-striped table-responsive table-bordered text-center d-table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.M_EmployeeMasters.EmployeeID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.M_EmployeeMasters.EmployeeName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ReferenceDoc)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FileName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FileDescription)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Active)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.M_EmployeeMasters.EmployeeID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.M_EmployeeMasters.EmployeeName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ReferenceDoc)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FileName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FileDescription)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Active)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.DocumentID }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.DocumentID }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.DocumentID })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

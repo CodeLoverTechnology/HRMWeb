@@ -1,0 +1,67 @@
+﻿@model IEnumerable<HRMWeb.DataModel.T_EmployeeAttendance>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="bg-primary h2" style="padding:5px;color:white;width:100%;">
+        Attendance Records
+        <div class="btn btn-success float-right" style="padding:5px;color:white;"> @Html.ActionLink("Submit Attendance", "MarkAttendance", "EmployeeAttendance", null)</div>
+    </div>
+        <table class="table table-active table-bordered table-hover table-responsive">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.M_EmployeeMasters.EmployeeID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.M_EmployeeMasters.EmployeeName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OutTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Reason)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.M_EmployeeMasters.EmployeeID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.M_EmployeeMasters.EmployeeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InTime)
+                    </td>
+                    <td>
+                        @if (string.IsNullOrEmpty(item.OutTime.ToString()))
+                        {
+                            @Html.ActionLink("Logout", "AttendanceLogout", "EmployeeAttendance", new { AttendanceID = item.AttendanceID },new { @class="btn btn-success"})
+}
+                        else
+                        {
+                        @Html.DisplayFor(modelItem => item.OutTime)
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Reason)
+                    </td>
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { id = item.AttendanceID }) |*@
+                        @Html.ActionLink("Details", "Details", new { id = item.AttendanceID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.AttendanceID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+  </div>
