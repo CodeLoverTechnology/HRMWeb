@@ -29,6 +29,7 @@ namespace HRMWeb.DataModel
         public string ModifiedBy { get; set; }
         public System.DateTime ModifiedDate { get; set; }
         public bool Active { get; set; }
+        public Nullable<int> LeaveStatus { get; set; }
     
         public virtual M_CommonMasterTable M_CommonMasterTable { get; set; }
         public virtual M_EmployeeMasters M_EmployeeMasters { get; set; }

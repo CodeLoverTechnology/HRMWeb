@@ -100,10 +100,12 @@ namespace HRMWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "AttendanceID,EmployeeID,InTime,OutTime,Reason,CreatedBy,CreatedDate,ModifiedBy,ModifiedDate,Active")] T_EmployeeAttendance t_EmployeeAttendance)
+        public async Task<ActionResult> Edit([Bind(Include = "AttendanceID,EmployeeID,InTime,OutTime,Reason,CreatedBy,CreatedDate,Active")] T_EmployeeAttendance t_EmployeeAttendance)
         {
             if (ModelState.IsValid)
             {
+                t_EmployeeAttendance.ModifiedBy = Session["LoginUserID"].ToString();
+                t_EmployeeAttendance.ModifiedDate = DateTime.Now;
                 db.Entry(t_EmployeeAttendance).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -149,7 +151,7 @@ namespace HRMWeb.Controllers
             t_EmployeeAttendance.ModifiedDate = DateTime.Now;
             t_EmployeeAttendance.Active = true;
             db.T_EmployeeAttendance.Add(t_EmployeeAttendance);
-            db.SaveChangesAsync();
+            db.SaveChanges();
             ViewBag.AttendanceMark = "Attendance Mark Successfully on : " + t_EmployeeAttendance.InTime;
             return RedirectToAction("Index");
          }
@@ -168,7 +170,7 @@ namespace HRMWeb.Controllers
             t_EmployeeAttendance.ModifiedBy = Session["LoginUserID"].ToString();
             t_EmployeeAttendance.ModifiedDate = DateTime.Now;
             db.Entry(t_EmployeeAttendance).State = EntityState.Modified;
-            db.SaveChangesAsync();
+            db.SaveChanges();
             ViewBag.AttendanceMark = "Attendance Logout Successfully on : " + t_EmployeeAttendance.InTime;
             return RedirectToAction("Index");
         }

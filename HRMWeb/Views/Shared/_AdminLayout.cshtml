@@ -59,29 +59,29 @@
     <div id="wrapper">
         <ul class="sidebar navbar navbar-nav navbar-light bg-light">
             <!-- navbar-nav bg-light navbar-dark-->
-            <li class="nav-item active">@Html.ActionLink("Home", "Index", "Home")</li>
-            <li class="nav-item">@Html.ActionLink("Dashboard", "Dashboard", "M_EmployeeMasters")</li>
+            <li class="nav-item active">@Html.ActionLink("Home", "Index", "Home", null, null)</li>
+            <li class="nav-item">@Html.ActionLink("Dashboard", "Dashboard", "M_EmployeeMasters", null, null)</li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     @*<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">*@
                     Masters<span class="navbar-toggler-icon"></span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="#navbardrop">
-                    <a class="dropdown-item" href="#">@Html.ActionLink("Master", "Index", "CommonMasterTable")</a>
-                    <a class="dropdown-item" href="#">@Html.ActionLink("Designation", "Index", "DesignationMaster")</a>
-                    <a class="dropdown-item" href="#">@Html.ActionLink("Project", "Index", "ProjectMaster")</a>
-                    <a class="dropdown-item" href="#">@Html.ActionLink("Company", "Index", "CompanyMasters")</a>
+                    <a class="dropdown-item" href="#">@Html.ActionLink("Master", "Index", "CommonMasterTable",null,null)</a>
+                    <a class="dropdown-item" href="#">@Html.ActionLink("Designation", "Index", "DesignationMaster", null, null)</a>
+                    <a class="dropdown-item" href="#">@Html.ActionLink("Project", "Index", "ProjectMaster", null, null)</a>
+                    <a class="dropdown-item" href="#">@Html.ActionLink("Company", "Index", "CompanyMasters", null, null)</a>
                 </div>
             </li>
 
             @*<li class="nav-item">@Html.ActionLink("Designation", "Index", "DesignationMaster")</li>*@
-            <li class="nav-item">@Html.ActionLink("Employee", "Index", "M_EmployeeMasters")</li>
+            <li class="nav-item">@Html.ActionLink("Employee", "Index", "M_EmployeeMasters", null, null)</li>
             <li class="nav-item">@Html.ActionLink("User Profile", "Details/" + (Session["LoginUserID"] as string), "M_EmployeeMasters")</li>
-            <li class="nav-item">@Html.ActionLink("Attendance", "Index", "EmployeeAttendance")</li>
-            <li class="nav-item">@Html.ActionLink("Apply Leave", "Index", "EmployeeLeave")</li>
-            <li class="nav-item">@Html.ActionLink("Time Sheet", "Index", "EmployeeTimeSheetTable")</li>
-            <li class="nav-item">@Html.ActionLink("Candidates", "Index", "CandidateMasters")</li>
-            <li class="nav-item">@Html.ActionLink("Logout", "HRMLogOut", "Home")</li>
+            <li class="nav-item">@Html.ActionLink("Attendance", "Index", "EmployeeAttendance", null, null)</li>
+            <li class="nav-item">@Html.ActionLink("Apply Leave", "Index", "EmployeeLeave", null, null)</li>
+            <li class="nav-item">@Html.ActionLink("Time Sheet", "Index", "EmployeeTimeSheetTable", null, null)</li>
+            <li class="nav-item">@Html.ActionLink("Candidates", "Index", "CandidateMasters", null, null)</li>
+            <li class="nav-item">@Html.ActionLink("Logout", "HRMLogOut", "Home", null, null)</li>
         </ul>
 
         <div id="content-wrapper">

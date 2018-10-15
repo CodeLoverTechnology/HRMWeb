@@ -18,8 +18,18 @@ namespace HRMWeb.Controllers
         // GET: EmployeeLeave
         public async Task<ActionResult> Index()
         {
-            var t_EmployeeLeave = db.T_EmployeeLeave.Include(t => t.M_CommonMasterTable).Include(t => t.M_EmployeeMasters).Include(t => t.M_EmployeeMasters1);
-            return View(await t_EmployeeLeave.ToListAsync());
+            if (Session["LoginUserID"].ToString() == Resources.HRMResources.AdminUser)
+            {
+                var t_EmployeeLeave = db.T_EmployeeLeave.Include(t => t.M_CommonMasterTable).Include(t => t.M_EmployeeMasters).Include(t => t.M_EmployeeMasters1);
+                return View(await t_EmployeeLeave.ToListAsync());
+            }
+            else
+            {
+                string EmployeeCode = Session["LoginUserID"].ToString();
+                var m_EmployeeMasters = db.T_EmployeeLeave.Where(x => x.EmployeeID == EmployeeCode).OrderByDescending(x => x.CreatedDate).Include(t => t.M_CommonMasterTable).Include(t => t.M_EmployeeMasters).Include(t => t.M_EmployeeMasters1);
+                return View(await m_EmployeeMasters.ToListAsync());
+            }
+            
         }
 
         // GET: EmployeeLeave/Details/5
@@ -40,9 +50,17 @@ namespace HRMWeb.Controllers
         // GET: EmployeeLeave/Create
         public ActionResult Create()
         {
-            ViewBag.TypeOfLeaveID = new SelectList(db.M_CommonMasterTable, "ID", "FieldValue");
-            ViewBag.EmployeeID = new SelectList(db.M_EmployeeMasters, "EmployeeID", "EmployeeName");
-            ViewBag.ApproverManagerID = new SelectList(db.M_EmployeeMasters, "EmployeeID", "EmployeeName");
+            string EmpCode = Session["LoginUserID"].ToString();
+            ViewBag.TypeOfLeaveID = new SelectList(db.M_CommonMasterTable.Where(x=>x.TableName== "TypeOfLeave"), "ID", "FieldValue");
+            if (Session["LoginUserID"] != null && Session["LoginUserID"].ToString() == Resources.HRMResources.AdminUser)
+            {
+                ViewBag.EmployeeID = new SelectList(db.M_EmployeeMasters, "EmployeeID", "EmployeeName");
+            }
+            else
+            {
+                ViewBag.EmployeeID = new SelectList(db.M_EmployeeMasters.Where(x => x.EmployeeID == EmpCode), "EmployeeID", "EmployeeName");
+            }
+            ViewBag.ApproverManagerID = new SelectList(db.M_EmployeeMasters.Where(x=>x.ManagerID==null), "EmployeeID", "EmployeeName");
             return View();
         }
 
@@ -51,7 +69,7 @@ namespace HRMWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "EmployeeID,LeaveReason,LeaveFromDate,LeaveToDate,NoOfLeave,TypeOfLeaveID,ApproverManagerID,ComponsetReason,LeaveFileAttachment")] T_EmployeeLeave t_EmployeeLeave)
+        public async Task<ActionResult> Create([Bind(Include = "EmployeeID,LeaveReason,LeaveFromDate,LeaveToDate,NoOfLeave,TypeOfLeaveID,ApproverManagerID,ComponsetReason,LeaveStatus,LeaveFileAttachment")] T_EmployeeLeave t_EmployeeLeave)
         {
             if (ModelState.IsValid)
             {
@@ -67,9 +85,18 @@ namespace HRMWeb.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.TypeOfLeaveID = new SelectList(db.M_CommonMasterTable, "ID", "FieldValue", t_EmployeeLeave.TypeOfLeaveID);
-            ViewBag.EmployeeID = new SelectList(db.M_EmployeeMasters, "EmployeeID", "EmployeeName", t_EmployeeLeave.EmployeeID);
-            ViewBag.ApproverManagerID = new SelectList(db.M_EmployeeMasters, "EmployeeID", "EmployeeName", t_EmployeeLeave.ApproverManagerID);
+            string EmpCode = Session["LoginUserID"].ToString();
+            ViewBag.TypeOfLeaveID = new SelectList(db.M_CommonMasterTable.Where(x => x.TableName == "TypeOfLeave"), "ID", "FieldValue");
+            if (Session["LoginUserID"] != null && Session["LoginUserID"].ToString() == Resources.HRMResources.AdminUser)
+            {
+                ViewBag.EmployeeID = new SelectList(db.M_EmployeeMasters, "EmployeeID", "EmployeeName");
+            }
+            else
+            {
+                ViewBag.EmployeeID = new SelectList(db.M_EmployeeMasters.Where(x => x.EmployeeID == EmpCode), "EmployeeID", "EmployeeName");
+            }
+            ViewBag.ApproverManagerID = new SelectList(db.M_EmployeeMasters.Where(x => x.ManagerID == null), "EmployeeID", "EmployeeName");
+            ViewBag.LeaveStatus = new SelectList(db.M_CommonMasterTable.Where(x => x.TableName == "LeaveStatus"), "ID", "FieldValue");
             return View(t_EmployeeLeave);
         }
 
@@ -85,9 +112,18 @@ namespace HRMWeb.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.TypeOfLeaveID = new SelectList(db.M_CommonMasterTable, "ID", "FieldValue", t_EmployeeLeave.TypeOfLeaveID);
-            ViewBag.EmployeeID = new SelectList(db.M_EmployeeMasters, "EmployeeID", "EmployeeName", t_EmployeeLeave.EmployeeID);
-            ViewBag.ApproverManagerID = new SelectList(db.M_EmployeeMasters, "EmployeeID", "EmployeeName", t_EmployeeLeave.ApproverManagerID);
+            string EmpCode = Session["LoginUserID"].ToString();
+            ViewBag.TypeOfLeaveID = new SelectList(db.M_CommonMasterTable.Where(x => x.TableName == "TypeOfLeave"), "ID", "FieldValue");
+            if (Session["LoginUserID"] != null && Session["LoginUserID"].ToString() == Resources.HRMResources.AdminUser)
+            {
+                ViewBag.EmployeeID = new SelectList(db.M_EmployeeMasters, "EmployeeID", "EmployeeName");
+            }
+            else
+            {
+                ViewBag.EmployeeID = new SelectList(db.M_EmployeeMasters.Where(x => x.EmployeeID == EmpCode), "EmployeeID", "EmployeeName");
+            }
+            ViewBag.ApproverManagerID = new SelectList(db.M_EmployeeMasters.Where(x => x.ManagerID == null), "EmployeeID", "EmployeeName");
+            ViewBag.LeaveStatus = new SelectList(db.M_CommonMasterTable.Where(x => x.TableName == "LeaveStatus"), "ID", "FieldValue");
             return View(t_EmployeeLeave);
         }
 
@@ -96,7 +132,7 @@ namespace HRMWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "LeaveID,EmployeeID,LeaveReason,LeaveFromDate,LeaveToDate,NoOfLeave,TypeOfLeaveID,ApproverManagerID,ComponsetReason,LeaveFileAttachment,CreatedBy,CreatedDate,Active")] T_EmployeeLeave t_EmployeeLeave)
+        public async Task<ActionResult> Edit([Bind(Include = "LeaveID,EmployeeID,LeaveReason,LeaveFromDate,LeaveToDate,NoOfLeave,TypeOfLeaveID,ApproverManagerID,ComponsetReason,LeaveStatus,LeaveFileAttachment,CreatedBy,CreatedDate,Active")] T_EmployeeLeave t_EmployeeLeave)
         {
             if (ModelState.IsValid)
             {

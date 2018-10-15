@@ -5,144 +5,98 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="row">
+    <div class="bg-primary h2" style="padding:5px;color:white;width:100%;">
+        Candidate Masters Record
+        <div class="btn btn-success float-right" style="padding:5px;color:white;"> @Html.ActionLink("Add Candidate", "Create", "CandidateMasters", null,new {@class="btn btn-success" })</div>
+    </div>
+    <table class="table table-active table-bordered table-hover table-responsive">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DesiredCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DesignationID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KeySkills)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrentCTC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspectedCTC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalExperience)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remarks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.M_CommonMasterTable.FieldValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.M_CompanyMasters.CompanyName)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmailID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContactNo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DesiredCity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DesignationID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.KeySkills)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CurrentCTC)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AspectedCTC)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalExperience)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CV)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Remarks)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Active)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.M_CommonMasterTable.FieldValue)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.M_CompanyMasters.CompanyName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.M_LocationMasters.State)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.M_RoleMaster.RoleText)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DesiredCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DesignationID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KeySkills)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CurrentCTC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspectedCTC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalExperience)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.M_CommonMasterTable.FieldValue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.M_CompanyMasters.CompanyName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CandidateID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CandidateID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CandidateID })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmailID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContactNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DesiredCity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DesignationID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.KeySkills)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CurrentCTC)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AspectedCTC)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalExperience)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CV)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Remarks)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Active)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.M_CommonMasterTable.FieldValue)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.M_CompanyMasters.CompanyName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.M_LocationMasters.State)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.M_RoleMaster.RoleText)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CandidateID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CandidateID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CandidateID })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>
+</div>

@@ -8,7 +8,7 @@
 <div class="border shadow pb-4">
     <div class="btn-primary">
         <div class="h2 text-left">
-            Employee Leave
+            Employee Time Sheet
             <div class="text-right" style="padding-right:5px;float:right;">
                 <a href="~/EmployeeTimeSheetTable/Create" class="btn btn-success">Add Time Sheet</a>
             </div>
@@ -22,6 +22,9 @@
                     <table class="table table-striped table-responsive table-bordered text-center d-table">
                         <tr>
                             <th>
+                                @Html.DisplayNameFor(model => model.TimeSheetID)
+                            </th>
+                            <th>
                                 @Html.DisplayNameFor(model => model.M_ProjectMaster.ProjectCode)
                             </th>
                             <th>
@@ -34,7 +37,7 @@
                                 @Html.DisplayNameFor(model => model.WorkDescription)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.M_CommonMasterTable.FieldValue)
+                                @*@Html.DisplayNameFor(model => model.M_CommonMasterTable.FieldValue)*@ <label>Work Type</label>
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.M_EmployeeMasters.EmployeeName)
@@ -44,31 +47,41 @@
 
                         @foreach (var item in Model)
                         {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.M_ProjectMaster.ProjectCode)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.WorkDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.WorkingHours)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.WorkDescription)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.M_CommonMasterTable.FieldValue)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.M_EmployeeMasters.EmployeeName)
-                            </td>
-                            <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.TimeSheetID }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.TimeSheetID }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.TimeSheetID })
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TimeSheetID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.M_ProjectMaster.ProjectCode)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.WorkDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.WorkingHours)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.WorkDescription)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.M_CommonMasterTable.FieldValue)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.M_EmployeeMasters.EmployeeName)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Details", "Details", new { id = item.TimeSheetID }) |
+                                    @if (item.CreatedDate < DateTime.Now)
+                                    {
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.TimeSheetID })
+                                    }
+                                    |
+                                    @if (item.CreatedDate < DateTime.Now)
+                                    {
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.TimeSheetID })
+                                    }
+                                </td>
+                            </tr>
                         }
 
                     </table>

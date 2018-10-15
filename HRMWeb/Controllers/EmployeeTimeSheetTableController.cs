@@ -18,8 +18,17 @@ namespace HRMWeb.Controllers
         // GET: EmployeeTimeSheetTable
         public async Task<ActionResult> Index()
         {
-            var t_EmployeeTimeSheetTable = db.T_EmployeeTimeSheetTable.Include(t => t.M_CommonMasterTable).Include(t => t.M_EmployeeMasters).Include(t => t.M_ProjectMaster);
-            return View(await t_EmployeeTimeSheetTable.ToListAsync());
+            if (Session["LoginUserID"].ToString() == Resources.HRMResources.AdminUser)
+            {
+                var t_EmployeeTimeSheetTable = db.T_EmployeeTimeSheetTable.Include(t => t.M_CommonMasterTable).Include(t => t.M_EmployeeMasters).Include(t => t.M_ProjectMaster);
+                return View(await t_EmployeeTimeSheetTable.OrderByDescending(x=>x.TimeSheetID).ToListAsync());
+            }
+            else
+            {
+                string EmployeeCode = Session["LoginUserID"].ToString();
+                var t_EmployeeTimeSheetTable = db.T_EmployeeTimeSheetTable.Where(x => x.EmployeeID == EmployeeCode).OrderByDescending(x => x.CreatedDate).Include(t => t.M_CommonMasterTable).Include(t => t.M_EmployeeMasters).Include(t => t.M_ProjectMaster);
+                return View(await t_EmployeeTimeSheetTable.OrderByDescending(x => x.TimeSheetID).ToListAsync());
+            }            
         }
 
         // GET: EmployeeTimeSheetTable/Details/5
@@ -40,7 +49,7 @@ namespace HRMWeb.Controllers
         // GET: EmployeeTimeSheetTable/Create
         public ActionResult Create()
         {
-            ViewBag.TypeOfWorkID = new SelectList(db.M_CommonMasterTable, "ID", "FieldValue");
+            ViewBag.TypeOfWorkID = new SelectList(db.M_CommonMasterTable.Where(x=>x.TableName== "TypeOfWork"), "ID", "FieldValue");
             ViewBag.EmployeeID = new SelectList(db.M_EmployeeMasters, "EmployeeID", "EmployeeName");
             ViewBag.ProjectID = new SelectList(db.M_ProjectMaster, "ProjectID", "ProjectCode");
             return View();
@@ -51,7 +60,7 @@ namespace HRMWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "EmployeeID,ProjectID,TypeOfWorkID,WorkDate,WorkingHours,WorkDescription")] T_EmployeeTimeSheetTable t_EmployeeTimeSheetTable)
+        public async Task<ActionResult> Create([Bind(Include = "TimeSheetID,EmployeeID,ProjectID,TypeOfWorkID,WorkDate,WorkingHours,WorkDescription")] T_EmployeeTimeSheetTable t_EmployeeTimeSheetTable)
         {
             if (ModelState.IsValid)
             {
@@ -84,9 +93,10 @@ namespace HRMWeb.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.TypeOfWorkID = new SelectList(db.M_CommonMasterTable, "ID", "FieldValue", t_EmployeeTimeSheetTable.TypeOfWorkID);
-            ViewBag.EmployeeID = new SelectList(db.M_EmployeeMasters, "EmployeeID", "EmployeeName", t_EmployeeTimeSheetTable.EmployeeID);
-            ViewBag.ProjectID = new SelectList(db.M_ProjectMaster, "ProjectID", "ProjectCode", t_EmployeeTimeSheetTable.ProjectID);
+            ViewBag.TypeOfWorkID = new SelectList(db.M_CommonMasterTable.Where(x => x.TableName == "TypeOfWork"), "ID", "FieldValue");
+            ViewBag.EmployeeID = new SelectList(db.M_EmployeeMasters, "EmployeeID", "EmployeeName");
+            ViewBag.ProjectID = new SelectList(db.M_ProjectMaster, "ProjectID", "ProjectCode");
+
             return View(t_EmployeeTimeSheetTable);
         }
 

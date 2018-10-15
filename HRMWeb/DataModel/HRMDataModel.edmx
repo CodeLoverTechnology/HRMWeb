@@ -244,7 +244,7 @@
           <Key>
             <PropertyRef Name="ProjectID" />
           </Key>
-          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProjectCode" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="CompanyID" Type="int" Nullable="false" />
           <Property Name="ProjectName" Type="nvarchar" MaxLength="255" Nullable="false" />
@@ -299,6 +299,7 @@
           <Property Name="ApproverManagerID" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="ComponsetReason" Type="nvarchar(max)" />
           <Property Name="LeaveFileAttachment" Type="nvarchar(max)" />
+          <Property Name="LeaveStatus" Type="int" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
@@ -309,7 +310,7 @@
           <Key>
             <PropertyRef Name="TimeSheetID" />
           </Key>
-          <Property Name="TimeSheetID" Type="int" Nullable="false" />
+          <Property Name="TimeSheetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EmployeeID" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="ProjectID" Type="int" Nullable="false" />
           <Property Name="TypeOfWorkID" Type="int" />
@@ -1558,6 +1559,7 @@
           <NavigationProperty Name="M_CommonMasterTable" Relationship="HRM_DBModel.FK_T_EmployeeLeave_M_CommonMasterTable" FromRole="T_EmployeeLeave" ToRole="M_CommonMasterTable" />
           <NavigationProperty Name="M_EmployeeMasters" Relationship="HRM_DBModel.FK_T_EmployeeLeave_M_EmployeeMasters" FromRole="T_EmployeeLeave" ToRole="M_EmployeeMasters" />
           <NavigationProperty Name="M_EmployeeMasters1" Relationship="HRM_DBModel.FK_T_EmployeeLeave_M_EmployeeMasters1" FromRole="T_EmployeeLeave" ToRole="M_EmployeeMasters" />
+          <Property Name="LeaveStatus" Type="Int32" />
         </EntityType>
         <EntityType Name="T_EmployeeTimeSheetTable">
           <Key>
@@ -1992,6 +1994,7 @@
           <EntitySetMapping Name="T_EmployeeLeave">
             <EntityTypeMapping TypeName="HRM_DBModel.T_EmployeeLeave">
               <MappingFragment StoreEntitySet="T_EmployeeLeave">
+                <ScalarProperty Name="LeaveStatus" ColumnName="LeaveStatus" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
                 <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />

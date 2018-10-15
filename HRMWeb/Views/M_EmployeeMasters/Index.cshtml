@@ -66,9 +66,9 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.ModifiedDate)
                             </th>
-                            <th>
+                            @*<th>
                                 @Html.DisplayNameFor(model => model.Active)
-                            </th>
+                            </th>*@
                             <th></th>
                         </tr>
                         @foreach (var item in Model)
@@ -107,13 +107,13 @@
                             <th>
                                 @Html.DisplayFor(model => item.ModifiedDate)
                             </th>
-                            <th>
+                            @*<th>
                                 @Html.DisplayFor(model => item.Active)
-                            </th>
+                            </th>*@
                             <td>
                                 @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })
+                                @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) @*|
+                                @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })*@
                             </td>
                         </tr>
                         }

@@ -54,7 +54,7 @@ namespace HRMWeb.Controllers
             ViewBag.CountryID = new SelectList(db.M_CommonMasterTable.Where(x => x.TableName == "Country"), "ID", "FieldValue");
             ViewBag.GenderID = new SelectList(db.M_CommonMasterTable.Where(x=>x.TableName== "Gender"), "ID", "FieldValue");
             ViewBag.DesignationID = new SelectList(db.M_DesignationMaster, "DesignationID", "Designation");
-            ViewBag.ManagerID = new SelectList(db.M_EmployeeMasters, "EmployeeID", "EmployeeName");
+            ViewBag.ManagerID = new SelectList(db.M_EmployeeMasters.Where(x=>x.ManagerID == null), "EmployeeID", "EmployeeName");
             return View();
         }
 

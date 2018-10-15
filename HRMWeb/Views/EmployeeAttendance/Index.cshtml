@@ -25,7 +25,10 @@
                     @Html.DisplayNameFor(model => model.OutTime)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Reason)
+                    Total Working Hours
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Reason)*@ Delayed Reason
                 </th>
                 <th></th>
             </tr>
@@ -46,12 +49,24 @@
                         @if (string.IsNullOrEmpty(item.OutTime.ToString()))
                         {
                             @Html.ActionLink("Logout", "AttendanceLogout", "EmployeeAttendance", new { AttendanceID = item.AttendanceID },new { @class="btn btn-success"})
-}
+                        }
                         else
                         {
                         @Html.DisplayFor(modelItem => item.OutTime)
                         }
                     </td>
+                    <td>
+                        @if (string.IsNullOrEmpty(item.OutTime.ToString()))
+                        {
+                           <label>NA</label>
+                        }
+                        else
+                        {
+                           <label>
+                               @(Convert.ToDateTime((item.OutTime - item.InTime).ToString()).ToString("HH:mm"))</label>
+                               @*<label>@Convert.ToDateTime(item.OutTime).Subtract(item.InTime)</label>*@
+                               }
+</td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Reason)
                     </td>

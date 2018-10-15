@@ -5,127 +5,66 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>T_EmployeeLeave</h4>
+<div class="border shadow pb-4">
+    <h2 class="bg-primary text-white p-1 pl-3">Leave Details</h2>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.LeaveReason)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LeaveReason)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LeaveFromDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LeaveFromDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LeaveToDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LeaveToDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NoOfLeave)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NoOfLeave)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ComponsetReason)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ComponsetReason)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LeaveFileAttachment)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LeaveFileAttachment)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedBy)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedBy)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Active)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Active)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.M_CommonMasterTable.FieldValue)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.M_CommonMasterTable.FieldValue)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.M_EmployeeMasters.EmployeeName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.M_EmployeeMasters.EmployeeName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.M_EmployeeMasters1.EmployeeName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.M_EmployeeMasters1.EmployeeName)
-        </dd>
-
-    </dl>
+    <div class="container-fluid">
+        <div class="form-horizontal form-inline">
+            <table class="table table-striped">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.M_EmployeeMasters.EmployeeName)</th>
+                    <td>@Html.DisplayFor(model => model.M_EmployeeMasters.EmployeeName)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.LeaveReason)</th>
+                    <td>@Html.DisplayFor(model => model.LeaveReason)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.LeaveFromDate)</th>
+                    <td>@Html.DisplayFor(model => model.LeaveFromDate)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.LeaveToDate)</th>
+                    <td>@Html.DisplayFor(model => model.LeaveToDate)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.NoOfLeave)</th>
+                    <td>@Html.DisplayFor(model => model.NoOfLeave)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.ComponsetReason)</th>
+                    <td>@Html.DisplayFor(model => model.ComponsetReason)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.LeaveFileAttachment)</th>
+                    <td>@Html.DisplayFor(model => model.LeaveFileAttachment)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.CreatedDate)</th>
+                    <td>@Html.DisplayFor(model => model.CreatedDate)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.ModifiedDate)</th>
+                    <td>@Html.DisplayFor(model => model.ModifiedDate)</td>
+                </tr>
+                <tr>
+                    <th>Work Type</th>
+                    <td>@Html.DisplayFor(model => model.M_CommonMasterTable.FieldValue)</td>
+                </tr>
+                <tr>
+                    <th>Approved By</th>
+                    <td>@Html.DisplayFor(model => model.M_EmployeeMasters1.EmployeeName)</td>
+                </tr>
+               
+            </table>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
+                    @Html.ActionLink("Edit", "Edit", "EmployeeLeave", new { id = Model.LeaveID }, new { @class = "btn btn-success" }) 
+                    @Html.ActionLink("Back to List", "Index", "EmployeeLeave", null, new { @class = "btn btn-warning text-white" })
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.LeaveID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

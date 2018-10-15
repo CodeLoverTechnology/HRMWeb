@@ -36,12 +36,12 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.NoOfLeave)
                             </th>
-                            @*<th>
-                                @Html.DisplayNameFor(model => model.ComponsetReason)
-                            </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.LeaveFileAttachment)
-                            </th>*@
+                                @Html.DisplayNameFor(model => model.LeaveStatus)
+                            </th>
+                            @*<th>
+            @Html.DisplayNameFor(model => model.LeaveFileAttachment)
+        </th>*@
                             <th>
                                 @Html.DisplayNameFor(model => model.M_CommonMasterTable.FieldValue)
                             </th>
@@ -53,41 +53,46 @@
 
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.M_EmployeeMasters.EmployeeName)
-                                </td>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.M_EmployeeMasters.EmployeeName)
+                            </td>
 
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.LeaveReason)
-                                </td>
-                                <td>
-                                    @item.LeaveFromDate.ToString("dd-MMM-yyyy")
-                                </td>
-                                <td>
-                                    @item.LeaveToDate.ToString("dd-MMM-yyyy")
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.NoOfLeave)
-                                </td>
-                                @*<td>
-                                    @Html.DisplayFor(modelItem => item.ComponsetReason)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.LeaveFileAttachment)
-                                </td>*@
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.M_CommonMasterTable.FieldValue)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.M_EmployeeMasters1.EmployeeName)
-                                </td>
-                                <td>
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.LeaveID }) |
-                                    @Html.ActionLink("Details", "Details", new { id = item.LeaveID }) |
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LeaveReason)
+                            </td>
+                            <td>
+                                @item.LeaveFromDate.ToString("dd-MMM-yyyy")
+                            </td>
+                            <td>
+                                @item.LeaveToDate.ToString("dd-MMM-yyyy")
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NoOfLeave)
+                            </td>
+                           <td>
+                            @Html.DisplayFor(modelItem => item.LeaveStatus)
+                            </td>
+                        
+                            <td>
+                                @Html.DisplayFor(modelItem => item.M_CommonMasterTable.FieldValue)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.M_EmployeeMasters1.EmployeeName)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Details", "Details", new { id = item.LeaveID }) |
+                                @if (item.CreatedDate < DateTime.Now)
+                                {
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.LeaveID }) 
+                                }
+                                |
+                                @if (item.CreatedDate < DateTime.Now)
+                                {
                                     @Html.ActionLink("Delete", "Delete", new { id = item.LeaveID })
-                                </td>
-                            </tr>
+                                }
+                            </td>
+                        </tr>
                         }
                     </table>
                     <div class="clearfix"></div>

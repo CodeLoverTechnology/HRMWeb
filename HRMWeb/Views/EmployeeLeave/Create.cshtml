@@ -49,7 +49,7 @@
 
 </script>
 <div class="border shadow pb-4">
-    <h2 class="bg-primary text-white p-1 pl-3">Create New Employee</h2>
+    <h2 class="bg-primary text-white p-1 pl-3">Create New Leave</h2>
     <hr />
     @using (Html.BeginForm("Create", "EmployeeLeave", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
@@ -60,15 +60,16 @@
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @*<div class="row">*@
                 <div class="form-group">
-                    @Html.LabelFor(model => model.EmployeeID, "EmployeeID", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.EmployeeID, "Employee", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
+
                         @Html.DropDownList("EmployeeID", null, htmlAttributes: new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.EmployeeID, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.LeaveReason, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.LeaveReason, "Leave Reason", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.LeaveReason, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.LeaveReason, "", new { @class = "text-danger" })
@@ -76,7 +77,7 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.LeaveFromDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.LeaveFromDate, "Leave From ", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.LeaveFromDate, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.LeaveFromDate, "", new { @class = "text-danger" })
@@ -84,7 +85,7 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.LeaveToDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.LeaveToDate, "Leave To", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.LeaveToDate, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.LeaveToDate, "", new { @class = "text-danger" })
@@ -92,15 +93,15 @@
                 </div>
 
                 @*<div class="form-group">
-                    @Html.LabelFor(model => model.NoOfLeave, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.NoOfLeave, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.NoOfLeave, "", new { @class = "text-danger" })
-                    </div>
-                </div>*@
+                        @Html.LabelFor(model => model.NoOfLeave, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NoOfLeave, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NoOfLeave, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.TypeOfLeaveID, "TypeOfLeaveID", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.TypeOfLeaveID, "Leave Type", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.DropDownList("TypeOfLeaveID", null, htmlAttributes: new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.TypeOfLeaveID, "", new { @class = "text-danger" })
@@ -108,7 +109,7 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.ApproverManagerID, "ApproverManagerID", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.ApproverManagerID, "Approver Manager", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.DropDownList("ApproverManagerID", null, htmlAttributes: new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.ApproverManagerID, "", new { @class = "text-danger" })

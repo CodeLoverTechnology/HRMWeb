@@ -4,104 +4,84 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>T_EmployeeTimeSheetTable</h4>
+<div class="border shadow pb-4">
+    <h2 class="bg-primary text-white p-1 pl-3">Employee Time Sheet Details</h2>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.WorkDate)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.WorkDate)
-        </dd>
+    <div class="container-fluid">
+        <div class="form-horizontal form-inline">
+            <table class="table table-striped">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.M_ProjectMaster.ProjectCode)
+                    </th>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.WorkingHours)
-        </dt>
+                    <td>
+                        :   @Html.DisplayFor(model => model.M_ProjectMaster.ProjectCode)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.M_EmployeeMasters.EmployeeName)
+                    </th>
 
-        <dd>
-            @Html.DisplayFor(model => model.WorkingHours)
-        </dd>
+                    <td>
+                        :   @Html.DisplayFor(model => model.M_EmployeeMasters.EmployeeName)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.WorkDate)
+                    </th>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.WorkDescription)
-        </dt>
+                    <td>
+                        :   @Html.DisplayFor(model => model.WorkDate)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.WorkingHours)
+                    </th>
 
-        <dd>
-            @Html.DisplayFor(model => model.WorkDescription)
-        </dd>
+                    <td>
+                        :   @Html.DisplayFor(model => model.WorkingHours)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.WorkDescription)
+                    </th>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </dt>
+                    <td>
+                        :  @Html.DisplayFor(model => model.WorkDescription)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Work Type
+                    </th>
 
-        <dd>
-            @Html.DisplayFor(model => model.CreatedBy)
-        </dd>
+                    <td>
+                        :  @Html.DisplayFor(model => model.M_CommonMasterTable.FieldValue)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ModifiedDate)
+                    </th>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedBy)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Active)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Active)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.M_CommonMasterTable.FieldValue)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.M_CommonMasterTable.FieldValue)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.M_EmployeeMasters.EmployeeName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.M_EmployeeMasters.EmployeeName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.M_ProjectMaster.ProjectCode)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.M_ProjectMaster.ProjectCode)
-        </dd>
-
-    </dl>
+                    <td>
+                        : @Html.DisplayFor(model => model.ModifiedDate)
+                    </td>
+                </tr>
+            </table>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
+                    @Html.ActionLink("Edit", "Edit", "EmployeeTimeSheetTable", new { id = Model.TimeSheetID }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Back to List", "Index", "EmployeeTimeSheetTable", null, new { @class = "btn btn-warning text-white" })
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.TimeSheetID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

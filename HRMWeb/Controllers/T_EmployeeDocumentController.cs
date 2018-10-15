@@ -19,8 +19,17 @@ namespace HRMWeb.Controllers
         // GET: T_EmployeeDocument
         public async Task<ActionResult> Index()
         {
-            var t_EmployeeDocument = db.T_EmployeeDocument.Include(t => t.M_EmployeeMasters);
-            return View(await t_EmployeeDocument.ToListAsync());
+            if (Session["LoginUserID"].ToString() == Resources.HRMResources.AdminUser)
+            {
+                var t_EmployeeDocument = db.T_EmployeeDocument.Include(t => t.M_EmployeeMasters);
+                return View(await t_EmployeeDocument.ToListAsync());
+            }
+            else
+            {
+                string EmployeeCode = Session["LoginUserID"].ToString();
+                var t_EmployeeDocument = db.T_EmployeeDocument.Where(x => x.EmployeeID == EmployeeCode).OrderByDescending(x => x.CreatedDate);
+                return View(await t_EmployeeDocument.ToListAsync());
+            }            
         }
 
         // GET: T_EmployeeDocument/Details/5

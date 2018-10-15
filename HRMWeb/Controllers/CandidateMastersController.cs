@@ -18,8 +18,17 @@ namespace HRMWeb.Controllers
         // GET: CandidateMasters
         public async Task<ActionResult> Index()
         {
-            var m_CandidateMasters = db.M_CandidateMasters.Include(m => m.M_CommonMasterTable).Include(m => m.M_CompanyMasters).Include(m => m.M_LocationMasters).Include(m => m.M_RoleMaster);
-            return View(await m_CandidateMasters.ToListAsync());
+            if (Session["LoginUserID"].ToString() == Resources.HRMResources.AdminUser)
+            {
+                var m_CandidateMasters = db.M_CandidateMasters.Include(m => m.M_CommonMasterTable).Include(m => m.M_CompanyMasters).Include(m => m.M_LocationMasters).Include(m => m.M_RoleMaster);
+                return View(await m_CandidateMasters.ToListAsync());
+            }
+            else
+            {
+                string EmployeeCode = Session["LoginUserID"].ToString();
+                var m_CandidateMasters = db.M_CandidateMasters.Include(m => m.M_CommonMasterTable).Include(m => m.M_CompanyMasters).Include(m => m.M_LocationMasters).Include(m => m.M_RoleMaster); 
+                return View(await m_CandidateMasters.ToListAsync());
+            }            
         }
 
         // GET: CandidateMasters/Details/5
