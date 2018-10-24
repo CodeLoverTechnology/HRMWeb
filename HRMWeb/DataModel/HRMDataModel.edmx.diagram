@@ -42,7 +42,7 @@
         <EntityTypeShape EntityType="HRM_DBModel.M_ProjectMaster" Width="1.5" PointX="7.5" PointY="25.25" />
         <EntityTypeShape EntityType="HRM_DBModel.T_EmployeeAttendance" Width="1.5" PointX="5.25" PointY="14.375" />
         <EntityTypeShape EntityType="HRM_DBModel.T_EmployeeLeave" Width="1.5" PointX="6.25" PointY="8.5" />
-        <EntityTypeShape EntityType="HRM_DBModel.T_EmployeeTimeSheetTable" Width="1.5" PointX="12.75" PointY="12.375" />
+        <EntityTypeShape EntityType="HRM_DBModel.T_EmployeeTimeSheetTable" Width="1.5" PointX="11.5" PointY="12.375" />
         <AssociationConnector Association="HRM_DBModel.FK_T_EmployeeLeave_M_CommonMasterTable" />
         <AssociationConnector Association="HRM_DBModel.FK_T_EmployeeTimeSheetTable_M_CommonMasterTable" />
         <AssociationConnector Association="HRM_DBModel.FK_M_ProjectMaster_M_CompanyMasters" />
@@ -53,6 +53,14 @@
         <AssociationConnector Association="HRM_DBModel.FK_T_EmployeeTimeSheetTable_M_ProjectMaster" />
         <EntityTypeShape EntityType="HRM_DBModel.T_EmployeeDocument" Width="1.5" PointX="5.25" PointY="0.75" />
         <AssociationConnector Association="HRM_DBModel.FK_T_EmployeeDocument_M_EmployeeMasters" />
+        <EntityTypeShape EntityType="HRM_DBModel.M_EmployeeSalaryMaster" Width="1.5" PointX="9.25" PointY="6.625" />
+        <EntityTypeShape EntityType="HRM_DBModel.T_TimeSeatMaster" Width="1.5" PointX="13.75" PointY="10.5" />
+        <AssociationConnector Association="HRM_DBModel.FK_M_EmployeeSalaryMaster_M_CommonMasterTable" />
+        <AssociationConnector Association="HRM_DBModel.FK_T_TimeSeatMaster_M_CommonMasterTable" />
+        <AssociationConnector Association="HRM_DBModel.FK_T_TimeSeatMaster_M_CommonMasterTable1" />
+        <AssociationConnector Association="HRM_DBModel.FK_M_EmployeeSalaryMaster_M_EmployeeMasters" />
+        <AssociationConnector Association="HRM_DBModel.FK_T_TimeSeatMaster_M_EmployeeMasters" />
+        <AssociationConnector Association="HRM_DBModel.FK_T_TimeSeatMaster_M_ProjectMaster" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

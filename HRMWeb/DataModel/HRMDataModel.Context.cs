@@ -43,5 +43,7 @@ namespace HRMWeb.DataModel
         public virtual DbSet<T_EmployeeLeave> T_EmployeeLeave { get; set; }
         public virtual DbSet<T_EmployeeTimeSheetTable> T_EmployeeTimeSheetTable { get; set; }
         public virtual DbSet<T_EmployeeDocument> T_EmployeeDocument { get; set; }
+        public virtual DbSet<M_EmployeeSalaryMaster> M_EmployeeSalaryMaster { get; set; }
+        public virtual DbSet<T_TimeSeatMaster> T_TimeSeatMaster { get; set; }
     }
 }

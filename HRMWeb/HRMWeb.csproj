@@ -173,6 +173,7 @@
     <Compile Include="Controllers\DesignationMasterController.cs" />
     <Compile Include="Controllers\EmployeeAttendanceController.cs" />
     <Compile Include="Controllers\EmployeeLeaveController.cs" />
+    <Compile Include="Controllers\EmployeeSalaryMasterController.cs" />
     <Compile Include="Controllers\EmployeeTimeSheetTableController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\M_EmployeeMastersController.cs" />
@@ -206,6 +207,9 @@
       <DependentUpon>HRMDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel\M_EmployeeMasters.cs">
+      <DependentUpon>HRMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\M_EmployeeSalaryMaster.cs">
       <DependentUpon>HRMDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel\M_FunctionAreaMaster.cs">
@@ -245,6 +249,9 @@
       <DependentUpon>HRMDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel\T_FinalCandidatePlacementDetails.cs">
+      <DependentUpon>HRMDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\T_TimeSeatMaster.cs">
       <DependentUpon>HRMDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -526,11 +533,6 @@
     <Content Include="Views\EmployeeAttendance\Details.cshtml" />
     <Content Include="Views\EmployeeAttendance\Edit.cshtml" />
     <Content Include="Views\EmployeeAttendance\Index.cshtml" />
-    <Content Include="Views\EmployeeTimeSheetTable\Create.cshtml" />
-    <Content Include="Views\EmployeeTimeSheetTable\Delete.cshtml" />
-    <Content Include="Views\EmployeeTimeSheetTable\Details.cshtml" />
-    <Content Include="Views\EmployeeTimeSheetTable\Edit.cshtml" />
-    <Content Include="Views\EmployeeTimeSheetTable\Index.cshtml" />
     <Content Include="Views\EmployeeLeave\Create.cshtml" />
     <Content Include="Views\EmployeeLeave\Delete.cshtml" />
     <Content Include="Views\EmployeeLeave\Details.cshtml" />
@@ -556,6 +558,16 @@
     <Content Include="Views\CompanyMasters\Details.cshtml" />
     <Content Include="Views\CompanyMasters\Edit.cshtml" />
     <Content Include="Views\CompanyMasters\Index.cshtml" />
+    <Content Include="Views\EmployeeSalaryMaster\Create.cshtml" />
+    <Content Include="Views\EmployeeSalaryMaster\Delete.cshtml" />
+    <Content Include="Views\EmployeeSalaryMaster\Details.cshtml" />
+    <Content Include="Views\EmployeeSalaryMaster\Edit.cshtml" />
+    <Content Include="Views\EmployeeSalaryMaster\Index.cshtml" />
+    <Content Include="Views\EmployeeTimeSheetTable\Create.cshtml" />
+    <Content Include="Views\EmployeeTimeSheetTable\Delete.cshtml" />
+    <Content Include="Views\EmployeeTimeSheetTable\Details.cshtml" />
+    <Content Include="Views\EmployeeTimeSheetTable\Edit.cshtml" />
+    <Content Include="Views\EmployeeTimeSheetTable\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,130 @@
+﻿@model IEnumerable<HRMWeb.DataModel.M_EmployeeSalaryMaster>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Basic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HRA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SPECIAL_ALLOWANCE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AWARDS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MEDICAL_ALLOWANCE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GROSS_EARNING)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GROSS_DEDUCTIONS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NET_Pay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.M_CommonMasterTable.FieldValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.M_EmployeeMasters.EmployeeName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Basic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HRA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SPECIAL_ALLOWANCE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AWARDS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MEDICAL_ALLOWANCE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GROSS_EARNING)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GROSS_DEDUCTIONS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NET_Pay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.M_CommonMasterTable.FieldValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.M_EmployeeMasters.EmployeeName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SalaryID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SalaryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SalaryID })
+        </td>
+    </tr>
+}
+
+</table>

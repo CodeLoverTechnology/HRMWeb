@@ -1,0 +1,155 @@
+﻿@model HRMWeb.DataModel.M_EmployeeSalaryMaster
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>M_EmployeeSalaryMaster</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Basic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Basic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HRA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HRA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SPECIAL_ALLOWANCE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SPECIAL_ALLOWANCE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AWARDS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AWARDS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MEDICAL_ALLOWANCE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEDICAL_ALLOWANCE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GROSS_EARNING)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GROSS_EARNING)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GROSS_DEDUCTIONS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GROSS_DEDUCTIONS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NET_Pay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NET_Pay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remarks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.M_CommonMasterTable.FieldValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.M_CommonMasterTable.FieldValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.M_EmployeeMasters.EmployeeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.M_EmployeeMasters.EmployeeName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SalaryID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

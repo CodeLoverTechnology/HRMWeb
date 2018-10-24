@@ -18,6 +18,7 @@ namespace HRMWeb.DataModel
         public M_ProjectMaster()
         {
             this.T_EmployeeTimeSheetTable = new HashSet<T_EmployeeTimeSheetTable>();
+            this.T_TimeSeatMaster = new HashSet<T_TimeSeatMaster>();
         }
     
         public int ProjectID { get; set; }
@@ -34,5 +35,7 @@ namespace HRMWeb.DataModel
         public virtual M_CompanyMasters M_CompanyMasters { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_EmployeeTimeSheetTable> T_EmployeeTimeSheetTable { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_TimeSeatMaster> T_TimeSeatMaster { get; set; }
     }
 }
